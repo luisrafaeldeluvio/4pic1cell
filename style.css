@@ -1,3 +1,123 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+}
+
 body {
-    font-size: 15pt;
+  background: #f0f0f0;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+}
+
+.header > .level {
+  margin-left: auto;
+}
+
+.header__stats {
+  margin: auto;
+}
+
+.main {
+  height: calc(100vh - 50px);
+}
+
+.organelles {
+  overflow-x: hidden;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  height: inherit;
+}
+
+.organelles > div {
+  width: 100%;
+  height: inherit;
+  /* 50px is total height of header*/
+  display: inline-block;
+  scroll-snap-align: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.bgc--pink {
+  background: #FF00E3;
+}
+
+.bgc--blue {
+  background: #0003FF;
+}
+
+.bgc--red {
+  background: #FF0000;
+}
+
+.bgc--green {
+  background: #23FF00;
+}
+
+.icon {
+  z-index: 100;
+  position: absolute;
+}
+
+.nucleus-icon {
+  font-size: 150px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline;
+}
+
+.shop-btn {
+  font-size: 75px;
+  left: 100%;
+  top: 100%;
+  transform: translate(-100%, -100%);
+}
+
+.food-icon {
+  font-size: 75px;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -100%);
+}
+
+.fridge-icon {
+  font-size: 75px;
+  left: 0%;
+  top: 100%;
+  transform: translate(0%, -100%);
+}
+
+.mitochondrion-icon {
+  font-size: 75px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.goto--left-organelle {
+  left: 0;
+}
+
+.goto--right-organelle {
+  right: 0;
+}
+
+.organelle-name {
+  left: 50%;
+  transform: translateX(-50%);
 }
