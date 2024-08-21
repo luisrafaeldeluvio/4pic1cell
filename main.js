@@ -22,7 +22,6 @@ const player = new Player;
 
 const organelles = document.querySelector('.organelles')
 const nucleusIcon = document.querySelector('.nucleus-icon')
-const mitochondrionIcon = document.querySelector('.mitochondrion-icon')
 const foodIcon = document.querySelector('.food-icon')
 
 document.querySelector(".energy").innerHTML = player.energy;
@@ -48,15 +47,23 @@ function changeOrganelle(direction) {
       player.getOrganelle + 1;
   }
   
+  function displayIcon(parent, display) {
+    const children = parent.children;
+    
+    for (var i = 0; i < children.length; i++) {
+     if (children[i].classList.contains('icon')) {
+       children[i].style.display = `${display}`;
+     }
+    }
+  }
+  
   switch(player.getOrganelle) {
     case 0:
-      mitochondrionIcon.style.display = 'inline';
-      foodIcon.style.display = 'inline';
+      displayIcon(mitochondrion, 'inline');
       nucleusIcon.style.display = 'none';
       break;
     default:
-      mitochondrionIcon.style.display = 'none';
-      foodIcon.style.display = 'none';
+      displayIcon(mitochondrion, 'none');
       nucleusIcon.style.display = 'inline';
   }
   
