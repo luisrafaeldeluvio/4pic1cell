@@ -1,7 +1,12 @@
 let word = pickGuess();
 let guess = []; // the player's guess
+const letters = []; // the og, should not be changed
+let lettersTemp = letters;
 
 let isPlaying = true;
+
+const letterContainer = document.querySelector('.letter-container');
+const guessContainer = document.querySelector('.guess-container');
 
 function pickGuess() {
   const guess = [
@@ -48,6 +53,38 @@ function pickGuess() {
 
 console.log(word);
 
+function getWordAmount() {
+  if (word.includes(' ')) {
+    return word.length - 1
+  } else {
+    return word.length
+  }
+}
+
+function getGuessAmount() {
+  let amount = 0;
+  for (var i = 0; i < guess.length; i++) {
+    if (guess[i] !== '') {
+      amount++
+    }
+  }
+  return amount;
+}
+
+function setGuessContainer() {
+  for (var i = 0; i < getWordAmount(); i++) {
+    const parent = document.querySelector('.guess-container')
+    const elem = document.createElement('span');
+    elem.id = `guess-${i}`;
+    elem.classList.add('guess');
+    elem.innerHTML = '';
+    parent.appendChild(elem);
+    
+    guess.push('')
+    
+  }
+}
+
 function setLetters() {
   //seperates each letters of the word and push
   //it in the array
@@ -76,40 +113,30 @@ function setLetters() {
   }
   
   for (var i = 0; i < 20; i++) {
-    const element = document.getElementById(`letter-${i}`)
-    
     const letterIndex = assignedPlace.indexOf(i);
     if (letterIndex !== -1) {
-      element.innerText = neededLetters[letterIndex];
+      letters.push(neededLetters[letterIndex]);
     } else {
-      element.innerText = randomLetters()
+      letters.push(randomLetters());
     }
+  }
+  
+  for (var i = 0; i < lettersTemp.length; i++) {
+    const element = document.getElementById(`letter-${i}`)
+    
+    element.innerText = lettersTemp[i]
     
   }
 }
 
 setLetters()
 
-function getWordAmount() {
-  if (word.includes(' ')) {
-    return word.length - 1
-  } else {
-    return word.length
-  }
-}
+//function for setting images based on word
 
-function getGuessAmount() {
-  let amount = 0;
-  for (var i = 0; i < guess.length; i++) {
-    if (guess[i] !== '') {
-      amount++
-    }
-  }
-  return amount;
-}
-
-document.querySelector('.letter-container').addEventListener('click', (event) => {
+letterContainer.addEventListener('click', (event) => {
   clickedLetter = event.target;
+  
+  if (!clickedLetter.matches('span')) return;
   
   if (clickedLetter.tagName.toLowerCase() === 'span' &&
       clickedLetter.id.startsWith('letter-') &&
@@ -117,57 +144,83 @@ document.querySelector('.letter-container').addEventListener('click', (event) =>
       getGuessAmount() !== getWordAmount()) {
     clickedLetter.classList.add('picked-letter')
     
+    for (var i = 0; i < lettersTemp.length; i++) {
+      if (i === parseInt(clickedLetter.id.replace(/\D/g,''))) {
+        lettersTemp[i] = '';
+      }
+    }
+    
+    //put the clicked letter in the guess container
     for (var i = 0; i < guess.length; i++) {
       if (guess[i] === '') {
+        const guessElem = document.getElementById(`guess-${i}`);
         guess[i] = clickedLetter.innerText;
-        document.getElementById(`guess-${i}`).innerHTML = guess[i];
+        guessElem.innerHTML = guess[i];
         break;
       }
     }
   }
 });
-
-document.querySelector('.guess-container').addEventListener('click', (event) => {
+console.log(letters);
+guessContainer.addEventListener('click', (event) => {
   const clickedLetter = event.target;
+  //also works if you press the parent XD fix it
+  if (!clickedLetter.matches('span')) return;
   
-  if (clickedLetter.innerHTML !== '') {
-    const id = clickedLetter.id
-    const idNum = id.slice(6,7);
-    guess[idNum] = '';
-    document.getElementById(`guess-${idNum}`).innerHTML = '';
+  
+  const elemId = parseInt(clickedLetter.id.replace(/^\D+/g, ''))
+  
+  guess.splice(elemId, 1)
+  
+  if (clickedLetter.innerHTML === '') return;
+  
+  for (var i = 0; i < letters.length; i++) {
+    if (lettersTemp[i] === '') {
+      lettersTemp[i] = clickedLetter.innerHTML
+      break;
+    }
   }
+  
+  clickedLetter.innerHTML = ''
+  
 })
-
-function setGuessContainer() {
-  for (var i = 0; i < getWordAmount(); i++) {
-    const parent = document.querySelector('.guess-container')
-    const elem = document.createElement('span');
-    elem.id = `guess-${i}`;
-    elem.classList.add('guess');
-    elem.innerHTML = '';
-    parent.appendChild(elem);
-    
-    guess.push('')
-    
-  }
-}
 
 setGuessContainer()
 
-//function for guess-container
-//create a span for each letter of word
-//so the above can work on it
 
 //game loop
+
+setInterval(() => {
+for (var i = 0; i < lettersTemp.length; i++) {
+    const element = document.getElementById(`letter-${i}`)
+    
+    element.innerText = lettersTemp[i]
+    
+  }
+}, 100)
   
   setInterval(() => {
+    
+    console.log(letters);
+    
     const answer = guess.toString();
     const realanswer = answer.replaceAll(",", "")
     console.log(realanswer)
     //document.querySelector('.guess-container').innerHTML = realanswer;
     
     //will not work if word has spaces. fix!!!
-    if (realanswer === word) {
+    
+    
+    function getWord() {
+      if (word.includes(' ')) {
+        return word.replace(' ', '')
+      } else {
+        return word
+      }
+    }
+ 
+    
+    if (realanswer === getWord()) {
       alert('YOU FUCKIN\' WON BRO');
     }
     
