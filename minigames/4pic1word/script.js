@@ -137,7 +137,7 @@ function setLetters() {
 
 function setImages() {
   for (var i = 1; i < 5; i++) {
-    document.getElementById(`pic-${i}`).src = `images/${word}-${i}.png`;
+    document.getElementById(`pic-${i}`).src = `pics/${word}-${i}.png`;
   }
 }
 
