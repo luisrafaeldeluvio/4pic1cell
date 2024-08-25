@@ -1,12 +1,14 @@
 let word;
 let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
-let lettersTemp = letters;
+
 
 let isPlaying = true;
 
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
+const hintBtn = document.getElementById('hint-btn');
+const shuffleBtn = document.getElementById('shuffle-btn');
 
 function getWordAmount() {
   if (word.includes(' ')) {
@@ -125,30 +127,83 @@ function setLetters() {
     }
   }
   
-  for (var i = 0; i < lettersTemp.length; i++) {
+  for (var i = 0; i < letters.length; i++) {
     const element = document.getElementById(`letter-${i}`)
     
-    element.innerText = lettersTemp[i]
+    element.innerText = letters[i]
     
   }
 }
 
-//function for setting images based on word
-
 function setImages() {
+  for (var i = 1; i < 5; i++) {
+    document.getElementById(`pic-${i}`).src = `images/${word}-${i}.png`;
+  }
+}
+
+function shuffle(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    
+    updateLetterContainer()
+}
+
+function updateLetterContainer() {
+  for (var i = 0; i < letters.length; i++) {
+    const element = document.getElementById(`letter-${i}`)
+    
+    element.innerText = letters[i]
+    
+  }
+}
+
+function testGuess() {
+  const soundWrong = new Audio('wrong.wav');
   
+  if (getGuessAmount() !== getWordAmount()) return;
+  
+  const answer = guess.toString().replaceAll(',', '');
+  const _word = (word.includes(' ')) ? word.replace(' ', '') : word;
+  
+  if (answer === _word) {
+    alert('you won')
+    newRound();
+    
+  } else {
+    alert('wrong answer')
+    soundWrong();
+  }
+  
+}
+
+function newRound() {
+  word = pickGuess();
+  guess = [];
+  letters = [];
+  
+  setGuessContainer();
+  setLetters();
+  setImages();
+  console.log(word);
 }
 
 letterContainer.addEventListener('click', (event) => {
   clickedLetter = event.target;
+  const sound = new Audio('click.wav')
   
   if (!clickedLetter.matches('span')) return;
   if (getGuessAmount() === getWordAmount()) return;
   
+  sound.play();
+  
   //remove the clicked letter from letter container
-  for (var i = 0; i < lettersTemp.length; i++) {
+  for (var i = 0; i < letters.length; i++) {
     if (i === parseInt(clickedLetter.id.replace(/\D/g,''))) {
-      lettersTemp[i] = '';
+      letters[i] = '';
       break;
     }
   }
@@ -165,20 +220,17 @@ letterContainer.addEventListener('click', (event) => {
   
   updateLetterContainer()
   
-  //check if won
-  const answer = guess.toString().replaceAll(',', '');
-  const _word = (word.includes(' ')) ? word.replace(' ', '') : word;
-  if (answer === _word) {
-    alert('you won!!!')
-    newRound()
-  }
+  testGuess();
 });
 
 guessContainer.addEventListener('click', (event) => {
   const clickedLetter = event.target;
+  const sound = new Audio('undo.wav');
   
   if (!clickedLetter.matches('span')) return;
   if (clickedLetter.innerHTML === '') return;
+  
+  sound.play();
   
   //replaces clicked letter to an empty string in the
   // guess array
@@ -187,34 +239,25 @@ guessContainer.addEventListener('click', (event) => {
     guess[guessIndex] = '';
   }
   
-  // Find the first empty index in lettersTemp
-  const emptyIndex = lettersTemp.findIndex(letter => letter === '');
+  // Find the first empty index in letters
+  const emptyIndex = letters.findIndex(letter => letter === '');
   if (emptyIndex !== -1) {
-    lettersTemp[emptyIndex] = clickedLetter.innerHTML;
+    letters[emptyIndex] = clickedLetter.innerHTML;
   }
   
   updateLetterContainer()
   
   clickedLetter.innerHTML = ''
-  
 })
 
-function updateLetterContainer() {
-  for (var i = 0; i < lettersTemp.length; i++) {
-    const element = document.getElementById(`letter-${i}`)
-    
-    element.innerText = lettersTemp[i]
-    
-  }
-}
+shuffleBtn.addEventListener('click', () => {
+  shuffle(letters)
+})
 
-function newRound() {
-  word = pickGuess();
-  guess = [];
-  letters = [];
-  lettersTemp = letters;
-  setGuessContainer();
-  setLetters();
-  console.log(word);
-}
+hintBtn.addEventListener('click', () => {
+  alert(`The answer is ${word}, stupid. 🤓☝️`)
+})
 
+document.addEventListener('DOMContentLoaded', function() {
+    newRound()
+});

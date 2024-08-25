@@ -2,6 +2,6 @@
   "run": {
     "type": "file",
     "file": "minigames/4pic1word/index.html",
-    "ignoreCurrent": true
+    "ignoreCurrent": false
   }
 }

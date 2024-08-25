@@ -70,14 +70,3 @@ function changeOrganelle(direction) {
   document.querySelector(".organelle-name").innerHTML = organelles.children[player.getOrganelle].id
   organelles.children[player.getOrganelle].scrollIntoView();
 }
-
-foodIcon.addEventListener('touchmove', (e) => {
-    let touchLocation = e.targetTouches[0];
-    foodIcon.style.left = touchLocation.pageX + 'px';
-    foodIcon.style.top = touchLocation.pageY + 'px';
-  })
-  
-foodIcon.addEventListener('touchend', () => {
-  foodIcon.style.left = '';
-  foodIcon.style.top = '';
-})
