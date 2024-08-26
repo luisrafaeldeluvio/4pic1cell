@@ -170,12 +170,12 @@ function testGuess() {
   const _word = (word.includes(' ')) ? word.replace(' ', '') : word;
   
   if (answer === _word) {
-    alert('you won')
+    console.log('you won')
     newRound();
     
   } else {
-    alert('wrong answer')
-    soundWrong();
+    console.log('wrong answer')
+    soundWrong.play();
   }
   
 }
@@ -250,8 +250,16 @@ guessContainer.addEventListener('click', (event) => {
   clickedLetter.innerHTML = ''
 })
 
+let shuffleCooldown = false;
 shuffleBtn.addEventListener('click', () => {
-  shuffle(letters)
+  if (shuffleCooldown) return;
+  
+  const sound = new Audio('shuffle.wav');
+  sound.play();
+  shuffle(letters);
+  shuffleCooldown = true;
+  setTimeout(() => { shuffleCooldown = false }, 600);
+  
 })
 
 hintBtn.addEventListener('click', () => {
