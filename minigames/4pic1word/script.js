@@ -36,7 +36,6 @@ function pickGuess() {
   'NUCLEOLUS',
   'CELL MEMBRANE',
   'GOLGI BODIES',
-  'ENDOPLASMIC RETICULUM',
   'RIBOSOME',
   'MITOCHONDRION',
   'LYSOSOME',
@@ -197,6 +196,7 @@ letterContainer.addEventListener('click', (event) => {
   
   if (!clickedLetter.matches('span')) return;
   if (getGuessAmount() === getWordAmount()) return;
+  if (clickedLetter.innerHTML === '') return;
   
   sound.play();
   
