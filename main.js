@@ -1,26 +1,16 @@
 class Player {
   atp = 0;
   level = 1;
-  
+
   energy = 100;
   health = 100;
   happiness = 1;
   level = 1;
-  
-  organelle = 0;
-  
-  get getOrganelle() {
-    return this.organelle;
-  }
-  
-  set setOrganelle(i) {
-    this.organelle = i;
-  }
 }
 
 const player = new Player;
 
-const organelles = document.querySelector('.organelles')
+const rooms = document.querySelector('.rooms')
 const nucleusIcon = document.querySelector('.nucleus-icon')
 const foodIcon = document.querySelector('.food-icon')
 
@@ -36,37 +26,36 @@ document.querySelector(".goto--right-organelle").addEventListener("click", () =>
   changeOrganelle("right")
 })
 
+let currentRoom = 0;
 function changeOrganelle(direction) {
+  const room = rooms.children;
+
   if (direction === "left") {
-    player.setOrganelle = (player.getOrganelle === 0) ?
-      organelles.children.length - 1 :
-      player.getOrganelle - 1;
+    --currentRoom;
+    if (currentRoom < 0) {
+      currentRoom = room.length - 1;
+    }
   } else if (direction === "right") {
-    player.setOrganelle = (player.getOrganelle === organelles.children.length - 1) ?
-      0 :
-      player.getOrganelle + 1;
-  }
-  
-  function displayIcon(parent, display) {
-    const children = parent.children;
-    
-    for (var i = 0; i < children.length; i++) {
-     if (children[i].classList.contains('icon')) {
-       children[i].style.display = `${display}`;
-     }
+    ++currentRoom;
+    if (currentRoom >= room.length) {
+      currentRoom = 0;
     }
   }
   
-  switch(player.getOrganelle) {
-    case 0:
-      displayIcon(mitochondrion, 'inline');
-      nucleusIcon.style.display = 'none';
-      break;
-    default:
-      displayIcon(mitochondrion, 'none');
-      nucleusIcon.style.display = 'inline';
+  
+  function displayIcon(_room, display) {
+    const roomChildren = _room.children;
+    
+    for (var i = 0; i < roomChildren.length; i++) {
+      if (!roomChildren[i].classList.contains('icon')) return;
+      roomChildren[i].style.display = `${display}`
+      console.log('chnaged display');
+    }
   }
   
-  document.querySelector(".organelle-name").innerHTML = organelles.children[player.getOrganelle].id
-  organelles.children[player.getOrganelle].scrollIntoView();
+  displayIcon(room[currentRoom], "block");
+  displayIcon(room[(currentRoom + room.length - 1) % room.length], "none");
+  
+  document.querySelector('.room-name').innerHTML = `${room[currentRoom].id[0].toUpperCase() + room[currentRoom].id.slice(1)}`
+  room[currentRoom].scrollIntoView();
 }
