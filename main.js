@@ -14,9 +14,9 @@ const rooms = document.querySelector('.rooms')
 const nucleusIcon = document.querySelector('.nucleus-icon')
 const foodIcon = document.querySelector('.food-icon')
 
-document.querySelector(".energy").innerHTML = player.energy;
-document.querySelector(".health").innerHTML = player.health;
-document.querySelector(".happiness").innerHTML = player.happiness;
+// document.querySelector(".energy").innerHTML = player.energy;
+// document.querySelector(".health").innerHTML = player.health;
+// document.querySelector(".happiness").innerHTML = player.happiness;
 
 document.querySelector(".goto--left-organelle").addEventListener("click", () => {
   changeOrganelle("left")
