@@ -155,7 +155,35 @@ background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox=
     0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
     0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
     1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
-  /* shake letters on shuffle via animation? */
+}
+
+.hint-container {
+  font-size: 0.8em;
+  display: none;
+  text-align: center;
+  width: 81.25%;
+  height: 70px;
+  
+  position: absolute;
+  bottom: 10.5%;
+  
+  margin: 2.5%;
+  padding: 0;
+  background: #444cf7;
+  border: none;
+  border-radius: 10px;
+  box-shadow:
+    0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
+    0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
+    1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
+}
+
+.hint-container span {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .bottom {

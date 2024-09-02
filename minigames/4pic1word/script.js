@@ -7,6 +7,7 @@ let isPlaying = true;
 
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
+const hintContainer = document.querySelector('.hint-container');
 const hintBtn = document.getElementById('hint-btn');
 const shuffleBtn = document.getElementById('shuffle-btn');
 
@@ -162,6 +163,7 @@ function updateLetterContainer() {
 
 function testGuess() {
   const soundWrong = new Audio('wrong.wav');
+  const soundRight = new Audio('right.wav');
   
   if (getGuessAmount() !== getWordAmount()) return;
   
@@ -169,9 +171,9 @@ function testGuess() {
   const _word = (word.includes(' ')) ? word.replace(' ', '') : word;
   
   if (answer === _word) {
+    soundRight.play();
     console.log('you won')
     newRound();
-    
   } else {
     console.log('wrong answer')
     soundWrong.play();
@@ -183,6 +185,9 @@ function newRound() {
   word = pickGuess();
   guess = [];
   letters = [];
+  
+  hintContainer.style.display = 'none'
+  hintContainer.children[0].innerHTML = '';
   
   setGuessContainer();
   setLetters();
@@ -271,7 +276,15 @@ shuffleBtn.addEventListener('click', () => {
 })
 
 hintBtn.addEventListener('click', () => {
-  alert(`The answer is ${word}, stupid. 🤓☝️`)
+  // alert(`The answer is ${word}, stupid. 🤓☝️`)
+  fetch('hint.json')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      hintContainer.style.display = 'block'
+      hintContainer.children[0].innerHTML = data[word];
+    })
 })
 
 document.addEventListener('DOMContentLoaded', function() {
