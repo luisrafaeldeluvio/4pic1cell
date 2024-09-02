@@ -220,7 +220,11 @@ letterContainer.addEventListener('click', (event) => {
   
   updateLetterContainer()
   
-  testGuess();
+  if (getGuessAmount() === getWordAmount()) {
+  setTimeout(() => {
+    testGuess();
+  }, 100) }
+  
 });
 
 guessContainer.addEventListener('click', (event) => {
@@ -258,7 +262,11 @@ shuffleBtn.addEventListener('click', () => {
   sound.play();
   shuffle(letters);
   shuffleCooldown = true;
-  setTimeout(() => { shuffleCooldown = false }, 600);
+  letterContainer.classList.add('shake-container')
+  setTimeout(() => {
+    shuffleCooldown = false
+    letterContainer.classList.remove('shake-container')
+  }, 600);
   
 })
 
