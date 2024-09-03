@@ -1,3 +1,5 @@
+
+
 let word;
 let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
@@ -134,7 +136,7 @@ function setLetters() {
 
 function setImages() {
   for (var i = 1; i < 5; i++) {
-    document.getElementById(`pic-${i}`).src = `pics/${word}-${i}.png`;
+    document.getElementById(`pic-${i}`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word}-${i}.png`;
   }
 }
 
