@@ -2,9 +2,6 @@ let word;
 let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
 
-
-let isPlaying = true;
-
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
 const hintContainer = document.querySelector('.hint-container');
