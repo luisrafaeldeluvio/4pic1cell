@@ -1,12 +1,13 @@
-
-
 let word;
 let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
+let hintCount = 0;
+let score = 0;
 
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
 const hintContainer = document.querySelector('.hint-container');
+const scoreContainer = document.querySelector('.score');
 const hintBtn = document.getElementById('hint-btn');
 const shuffleBtn = document.getElementById('shuffle-btn');
 
@@ -172,6 +173,8 @@ function testGuess() {
   if (answer === _word) {
     soundRight.play();
     console.log('you won')
+    score += getWordAmount() - hintCount;
+    console.log(getWordAmount(), hintCount);
     newRound();
   } else {
     console.log('wrong answer')
@@ -187,11 +190,14 @@ function newRound() {
   
   hintContainer.style.display = 'none'
   hintContainer.children[0].innerHTML = '';
+  hintCount = 0;
   
   setGuessContainer();
   setLetters();
   setImages();
   console.log(word);
+  
+  scoreContainer.innerHTML = score;
 }
 
 letterContainer.addEventListener('click', (event) => {
@@ -275,15 +281,43 @@ shuffleBtn.addEventListener('click', () => {
 })
 
 hintBtn.addEventListener('click', () => {
-  // alert(`The answer is ${word}, stupid. 🤓☝️`)
-  fetch('hint.json')
+  
+  if(hintCount === 0) {
+    fetch('hint.json')
     .then(response => {
       return response.json();
     })
     .then(data => {
       hintContainer.style.display = 'block'
       hintContainer.children[0].innerHTML = data[word];
+      hintCount += 1;
     })
+    return;
+  }
+  
+  const _word = word.replaceAll(' ', '')
+  for (var i = 0; i < guess.length; i++) {
+    if (guess[i] === '') {
+      const guessElem = document.getElementById(`guess-${i}`);
+      guess[i] = _word[i];
+      guessElem.innerHTML = guess[i];
+      for (var j = 0; j < letters.length; j++) {
+        if (letters[j] === _word[i]) {
+          letters[j] = '';
+          break;
+        }
+      }
+      break;
+    }
+  }
+  
+  hintCount += 1;
+    
+  updateLetterContainer()
+  if (getGuessAmount() === getWordAmount()) {
+    setTimeout(() => {
+    testGuess();
+  }, 100) }
 })
 
 document.addEventListener('DOMContentLoaded', function() {
