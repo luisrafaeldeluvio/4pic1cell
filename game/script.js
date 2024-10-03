@@ -162,8 +162,8 @@ function updateLetterContainer() {
 }
 
 function testGuess() {
-  const soundWrong = new Audio('wrong.wav');
-  const soundRight = new Audio('right.wav');
+  const soundWrong = new Audio('assets/wrong.wav');
+  const soundRight = new Audio('assets/right.wav');
   
   if (getGuessAmount() !== getWordAmount()) return;
   
@@ -202,7 +202,7 @@ function newRound() {
 
 letterContainer.addEventListener('click', (event) => {
   clickedLetter = event.target;
-  const sound = new Audio('click.wav')
+  const sound = new Audio('assets/click.wav')
   
   if (!clickedLetter.matches('span')) return;
   if (getGuessAmount() === getWordAmount()) return;
@@ -239,7 +239,7 @@ letterContainer.addEventListener('click', (event) => {
 
 guessContainer.addEventListener('click', (event) => {
   const clickedLetter = event.target;
-  const sound = new Audio('undo.wav');
+  const sound = new Audio('assets/undo.wav');
   
   if (!clickedLetter.matches('span')) return;
   if (clickedLetter.innerHTML === '') return;
@@ -268,7 +268,7 @@ let shuffleCooldown = false;
 shuffleBtn.addEventListener('click', () => {
   if (shuffleCooldown) return;
   
-  const sound = new Audio('shuffle.wav');
+  const sound = new Audio('assets/shuffle.wav');
   sound.play();
   shuffle(letters);
   shuffleCooldown = true;
@@ -283,7 +283,7 @@ shuffleBtn.addEventListener('click', () => {
 hintBtn.addEventListener('click', () => {
   
   if(hintCount === 0) {
-    fetch('hint.json')
+    fetch('assets/hint.json')
     .then(response => {
       return response.json();
     })
