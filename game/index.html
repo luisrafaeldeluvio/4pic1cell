@@ -20,15 +20,17 @@
       <span class="timer-container"></span>
       
       <div class="pic-container">
-        <img src="" alt="" id="pic-1" loading="lazy">
-        
-        <img src="" alt="" id="pic-2" loading="lazy">
-        <img src="" alt="" id="pic-3" loading="lazy">
-        <img src="" alt="" id="pic-4" loading="lazy">
+        <img src="" id="pic-1" loading="lazy">
+        <span id="picHint-1" class="pic-hint">ggggg</span>
+        <img src="" id="pic-2" loading="lazy">
+        <span id="picHint-2" class="pic-hint"></span>
+        <img src="" id="pic-3" loading="lazy">
+        <span id="picHint-3" class="pic-hint"></span>
+        <img src="" id="pic-4" loading="lazy">
+        <span id="picHint-4"class="pic-hint"></span>
       </div>
       
-      <div class="guess-container">
-      </div>
+      <div class="guess-container"></div>
       
       <div class="bottom">
         <div class="letter-container">
@@ -53,18 +55,14 @@
           <span id="letter-18"></span>
           <span id="letter-19"></span>
         </div>
-        
+        <button id="clue-btn"><img src="assets/clue.svg" alt=""></button>
         <button id="hint-btn">Hint</button>
-        
         <button id="shuffle-btn"><img src="assets/shuffle.svg" alt=""></button>
       </div>
-      
-      <div class="hint-container">
-        <span>Hello</span>
-      </div>
-  
     </div>
   </main>
+  
+  <span class="modal__hint"></span>
   
   <script src="script.js"></script>
 </body>

@@ -4,12 +4,16 @@ let letters = []; // the og, should not be changed
 let hintCount = 0;
 let score = 0;
 
+let terms = [];
+
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
-const hintContainer = document.querySelector('.hint-container');
 const scoreContainer = document.querySelector('.score');
+const picContainer = document.querySelector('.pic-container');
 const hintBtn = document.getElementById('hint-btn');
+const hintContainer = document.querySelector('.modal__hint');
 const shuffleBtn = document.getElementById('shuffle-btn');
+const clueBtn = document.getElementById('clue-btn')
 
 function getWordAmount() {
   if (word.includes(' ')) {
@@ -30,87 +34,9 @@ function getGuessAmount() {
 }
 
 function pickGuess() {
-  const guess = [
-  "Cell",
-  "Robert Hooke",
-  "Robert Brown",
-  "Felix Dujardin",
-  "Rudolf Virchow",
-  "Nucleus",
-  "Nuclear Membrane",
-  "Nuclear Pores",
-  "Nucleolus",
-  "Cell Membrane",
-  "Golgi Bodies",
-  "Endoplasmic Reticulum",
-  "Ribosome",
-  "Mitochondrion",
-  "Lysosome",
-  "Vacuole",
-  "Centriole",
-  "Microtubule",
-  "Phospholipids",
-  "Cytosol",
-  "Nuclear Envelope",
-  "Phagosomes",
-  "Cisternae",
-  "Cell Wall",
-  "Stroma",
-  "Grana",
-  "Thylakoids",
-  "Chlorophyll",
-  "Chloroplast",
-  "Photosynthesis",
-  "Lumen",
-  "Prokaryotes",
-  "Eukaryotes",
-  "Cillia",
-  "Flagella",
-  "Villia",
-  "Microvilli",
-  "Diffusion",
-  "ATP",
-  "Carrier Proteins",
-  "Channel Proteins",
-  "Osmosis",
-  "Isotonic",
-  "Hypotonic",
-  "Hypertonic",
-  "Endocytosis",
-  "Phagocytosis",
-  "Pinocytosis",
-  "Exocytosis",
-  "Cell Division",
-  "Cell Cycle",
-  "Mitosis",
-  "Interphase",
-  "Mitotic Phase",
-  "Chromosomes",
-  "DNA",
-  "Prophase",
-  "Metaphase",
-  "Anaphase",
-  "Telophase",
-  "Mitotic Spindle",
-  "Kinetochore",
-  "Aster",
-  "Centromere",
-  "Centrosome",
-  "Metaphase Plate",
-  "Cytokinesis",
-  "Cleavage Furrow",
-  "Cell Plate",
-  "Meiosis",
-  "Gametes",
-  "Diploid Cell",
-  "Haploid Cell",
-  "Sister Chromatids",
-  "Alleles",
-  "Crossing Over"
-  ];
-  const randNum = Math.floor(Math.random() * guess.length);
+  const randNum = Math.floor(Math.random() * terms.length);
   
-  return guess[randNum];
+  return terms[randNum];
 }
 
 function setGuessContainer() {
@@ -134,7 +60,7 @@ function setGuessContainer() {
   
   if (getWordAmount() >= 10) guessContainer.style.fontSize = "1.20em";
   if (getWordAmount() >= 15) guessContainer.style.fontSize = "0.95em";
-  if (getWordAmount() >= 20) guessContainer.style.fontSize = "0.45em";
+  if (getWordAmount() >= 20) guessContainer.style.fontSize = "0.60em";
 }
 
 function setLetters() {
@@ -220,7 +146,6 @@ function testGuess() {
     soundRight.play();
     console.log('you won')
     score += getWordAmount() - hintCount;
-    console.log(getWordAmount(), hintCount);
     newRound();
   } else {
     console.log('wrong answer')
@@ -234,8 +159,6 @@ function newRound() {
   guess = [];
   letters = [];
   
-  hintContainer.style.display = 'none'
-  hintContainer.children[0].innerHTML = '';
   hintCount = 0;
   
   setGuessContainer();
@@ -245,6 +168,11 @@ function newRound() {
   
   scoreContainer.innerHTML = score;
 }
+
+picContainer.addEventListener('click', (event) => {
+  target = event.target;
+  console.log(target)
+})
 
 letterContainer.addEventListener('click', (event) => {
   clickedLetter = event.target;
@@ -328,19 +256,6 @@ shuffleBtn.addEventListener('click', () => {
 
 hintBtn.addEventListener('click', () => {
   
-  if(hintCount === 0) {
-    fetch('hint.json')
-    .then(response => {
-      return response.json();
-    })
-    .then(data => {
-      hintContainer.style.display = 'block'
-      hintContainer.children[0].innerHTML = data[word];
-      hintCount += 1;
-    })
-    return;
-  }
-  
   const _word = word.replaceAll(' ', '')
   for (var i = 0; i < guess.length; i++) {
     if (guess[i] === '') {
@@ -366,6 +281,32 @@ hintBtn.addEventListener('click', () => {
   }, 100) }
 })
 
+clueBtn.addEventListener('click', () => {
+  if (hintContainer.style.display === "block") return;
+  
+  fetch('hint.json')
+  .then(response => {
+    return response.json();
+  })
+  .then(data => {
+    hintContainer.style.display = "block";
+    hintContainer.innerHTML = data[word];
+    hintCount += 1;
+  })
+})
+
+window.onclick = function(event) {
+  //if (event.target == hintContainer) return;
+  hintContainer.style.display = "none";
+}
+
 document.addEventListener('DOMContentLoaded', function() {
-    newRound()
+  fetch('terms.json')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      terms = data;
+      newRound()
+    })
 });
