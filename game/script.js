@@ -31,40 +31,82 @@ function getGuessAmount() {
 
 function pickGuess() {
   const guess = [
-  'NUCLEUS',
-  'NUCLEAR MEMBRANE',
-  'NUCLEAR PORES',
-  'NUCLEOLUS',
-  'CELL MEMBRANE',
-  'GOLGI BODIES',
-  'RIBOSOME',
-  'MITOCHONDRION',
-  'LYSOSOME',
-  'VACUOLE',
-  'CENTRIOLE',
-  'MICROTUBULE',
-  'SECRETORY VESICLE',
-  'CHLOROPHYLL',
-  'CELL WALL',
-  'DNA',
-  'RNA',
-  'CHROMOSOME',
-  'ATP',
-  'SUGAR',
-  'PROTEIN',
-  'LIPIDS',
-  'CYTOPLASM',
-  'ENDOPLASM',
-  'ECTOPLASM',
-  'CILIA',
-  'FLAGELLA',
-  'MITOSIS',
-  'PHOSPHOLIPIDS',
-  'CYTOSOL',
-  'ORGANELLE',
-  'NUCLEAR ENVELOPE',
-  'CISTERNA',
-  'CRISTAE'
+  "Cell",
+  "Robert Hooke",
+  "Robert Brown",
+  "Felix Dujardin",
+  "Rudolf Virchow",
+  "Nucleus",
+  "Nuclear Membrane",
+  "Nuclear Pores",
+  "Nucleolus",
+  "Cell Membrane",
+  "Golgi Bodies",
+  "Endoplasmic Reticulum",
+  "Ribosome",
+  "Mitochondrion",
+  "Lysosome",
+  "Vacuole",
+  "Centriole",
+  "Microtubule",
+  "Phospholipids",
+  "Cytosol",
+  "Nuclear Envelope",
+  "Phagosomes",
+  "Cisternae",
+  "Cell Wall",
+  "Stroma",
+  "Grana",
+  "Thylakoids",
+  "Chlorophyll",
+  "Chloroplast",
+  "Photosynthesis",
+  "Lumen",
+  "Prokaryotes",
+  "Eukaryotes",
+  "Cillia",
+  "Flagella",
+  "Villia",
+  "Microvilli",
+  "Diffusion",
+  "ATP",
+  "Carrier Proteins",
+  "Channel Proteins",
+  "Osmosis",
+  "Isotonic",
+  "Hypotonic",
+  "Hypertonic",
+  "Endocytosis",
+  "Phagocytosis",
+  "Pinocytosis",
+  "Exocytosis",
+  "Cell Division",
+  "Cell Cycle",
+  "Mitosis",
+  "Interphase",
+  "Mitotic Phase",
+  "Chromosomes",
+  "DNA",
+  "Prophase",
+  "Metaphase",
+  "Anaphase",
+  "Telophase",
+  "Mitotic Spindle",
+  "Kinetochore",
+  "Aster",
+  "Centromere",
+  "Centrosome",
+  "Metaphase Plate",
+  "Cytokinesis",
+  "Cleavage Furrow",
+  "Cell Plate",
+  "Meiosis",
+  "Gametes",
+  "Diploid Cell",
+  "Haploid Cell",
+  "Sister Chromatids",
+  "Alleles",
+  "Crossing Over"
   ];
   const randNum = Math.floor(Math.random() * guess.length);
   
@@ -89,6 +131,10 @@ function setGuessContainer() {
     guess.push('')
     
   }
+  
+  if (getWordAmount() >= 10) guessContainer.style.fontSize = "1.20em";
+  if (getWordAmount() >= 15) guessContainer.style.fontSize = "0.95em";
+  if (getWordAmount() >= 20) guessContainer.style.fontSize = "0.45em";
 }
 
 function setLetters() {
@@ -283,7 +329,7 @@ shuffleBtn.addEventListener('click', () => {
 hintBtn.addEventListener('click', () => {
   
   if(hintCount === 0) {
-    fetch('assets/hint.json')
+    fetch('hint.json')
     .then(response => {
       return response.json();
     })

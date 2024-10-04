@@ -39,11 +39,12 @@ background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox=
 .guess-container {
   width: auto;
   max-width: 95%;
-  height: 35px;
+  
+  height: calc(1em + 10px);
   
   background: blue;
   text-align: center;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 425;
   
   position: absolute;
@@ -65,9 +66,12 @@ background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox=
 }
 
 .guess {
-  margin: 2.5px;
-  width: 25px;
-  line-height: 35px;
+  margin: 5px;
+  padding: 2.5px;
+  width: 30px;
+  height: 1em;
+  border-top: 1px solid black;
+  
 }
 
 .letter-container {
@@ -76,13 +80,18 @@ background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox=
   grid-gap: 5px;
 }
 
+.letter-container > * {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .pic-container {
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-gap: 10px;
 }
 
-.pic-container > img {
+.pic-container > * {
   pointer-events: none;
   place-self: center;
   width: 175px;
@@ -163,6 +172,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox=
   width: 11.25%;
   margin: 1.25%;
   padding: 0;
+  line-height: 10px;
   background: #444cf7;
   border: none;
   border-radius: 10px;
