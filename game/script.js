@@ -1,7 +1,6 @@
 let word;
 let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
-let hintCount = 0;
 let score = 0;
 
 let terms = [];
@@ -108,9 +107,15 @@ function setLetters() {
 }
 
 function setImages() {
-  for (var i = 1; i < 5; i++) {
-    document.getElementById(`pic-${i}`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word}-${i}.png`;
-  }
+  //for (var i = 1; i < 5; i++) {
+    //document.getElementById(`pic-${i}`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word}-${i}.png`;
+  //}
+  
+  const word_ = word.replace(' ', '_')
+  
+  document.getElementById(`pic-3`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-3.webp`
+  document.getElementById(`pic-4`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-4.webp`
+  
 }
 
 function shuffle(array) {
@@ -145,7 +150,7 @@ function testGuess() {
   if (answer === _word) {
     soundRight.play();
     console.log('you won')
-    score += getWordAmount() - hintCount;
+    score += getWordAmount();
     newRound();
   } else {
     console.log('wrong answer')
@@ -171,7 +176,20 @@ function newRound() {
 
 picContainer.addEventListener('click', (event) => {
   target = event.target;
-  console.log(target)
+  
+  if (target.id.includes('pic-')) {
+    const id = target.id.match(/\d+/)[0];
+    
+    target.style.display = "none";
+    picContainer.querySelector(`#picHint-${id}`).style.display = "block";
+  }
+  
+  if (target.id.includes('picHint-')) {
+    const id = target.id.match(/\d+/)[0];
+    
+    target.style.display = "none";
+    picContainer.querySelector(`#pic-${id}`).style.display = "block";
+  }
 })
 
 letterContainer.addEventListener('click', (event) => {
@@ -255,6 +273,7 @@ shuffleBtn.addEventListener('click', () => {
 })
 
 hintBtn.addEventListener('click', () => {
+  const sound = new Audio('assets/click.wav')
   
   const _word = word.replaceAll(' ', '')
   for (var i = 0; i < guess.length; i++) {
@@ -272,7 +291,8 @@ hintBtn.addEventListener('click', () => {
     }
   }
   
-  hintCount += 1;
+  score -= 1;
+  sound.play();
     
   updateLetterContainer()
   if (getGuessAmount() === getWordAmount()) {
@@ -291,7 +311,7 @@ clueBtn.addEventListener('click', () => {
   .then(data => {
     hintContainer.style.display = "block";
     hintContainer.innerHTML = data[word];
-    hintCount += 1;
+    score -= Math.round(score * 0.25);
   })
 })
 

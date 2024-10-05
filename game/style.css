@@ -84,7 +84,7 @@ main {
 }
 
 .pic-container > * {
-  pointer-events: none;
+  
   place-self: center;
   width: 175px;
   height: 175px;
@@ -93,17 +93,9 @@ main {
 
 }
 
-.pic-container img:nth-of-type(1) {
-  display: none;
-}
-
 .pic-hint {
   display: none;
   background: #444cf7;
-}
-
-.pic-container span:nth-of-type(1) {
-  display: block;
 }
 
 .letter-container {
