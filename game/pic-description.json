@@ -1,286 +1,286 @@
 {
   "CARRIER PROTEINS": {
-    "appearance": "A key best describes ___; it has a specific shape that fits into a lock, similar to how ___ have specific binding sites for molecules.",
-    "function": " a ferry boat represents ___, as it transports passengers (molecules) across water (the cell membrane) efficiently."
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
-  },
-  "": {
-    "appearance": "",
-    "function": ""
+    "appearance": "A key best has a specific shape that fits into a lock.",
+    "function": "A ferry boat transports passengers across water efficiently."
+  },
+  "OSMOSIS": {
+    "appearance": "A semi-permeable sponge visually represents the selective movement of water in and out of the cell through tiny pores.",
+    "function": "A coffee filter selectively allows water to pass through while retaining larger particles, similar to how cell membranes regulate water flow."
+  },
+  "ISOTONIC": {
+    "appearance": "A balance scale visually represents equilibrium, with equal amounts of solution on both sides, similar to balanced water movement in and out of the cell.",
+    "function": "A sealed water bottle has no net movement of water in or out, mirroring how cells maintain stable volume when in an isotonic environment."
+  },
+  "HYPOTONIC": {
+    "appearance": "A swollen balloon visually represents how cells expand when water rushes in due to the lower solute concentration outside.",
+    "function": "A dry sponge absorbs water and swells, similar to how cells take in water and expand in a hypotonic solution."
+  },
+  "HYPERTONIC": {
+    "appearance": "A shriveled raisin visually represents how cells shrink and wrinkle when water leaves due to the higher solute concentration outside",
+    "function": "A wet sponge left in salt. The salt draws water out, causing the sponge to dry out, just like how cells lose water and shrink in a hypertonic solution."
+  },
+  "ENDOCYTOSIS": {
+    "appearance": "A pocket turning inward on a bag visually mimics how the cell membrane folds inward to engulf external particles.",
+    "function": "A Pac-Man 'swallows' particles into the cell, similar to how Pac-Man eats objects by engulfing them."
+  },
+  "PHAGOCYTOSIS": {
+    "appearance": "A blob of clay wrapping around a small marble visually represents the cell extending its membrane to engulf large particles like bacteria or debris.",
+    "function": ": A vacuum cleaner 'sucks up' large particles, similar to how a cell engulfs and digests foreign substances."
+  },
+  "PINOCYTOSIS": {
+    "appearance": "A water droplet merging into a larger body of liquid because the cell membrane forms a small pocket that pinches off to engulf fluid.",
+    "function": "A sponge absorbing water because the cell 'drinks' or absorbs extracellular fluid and dissolved substances in a non-selective way."
+  },
+  "EXOCYTOSIS": {
+    "appearance": "A bubble rising to the surface of water and bursting, as the vesicle fuses with the cell membrane and releases its contents outside the cell.",
+    "function": "A delivery truck unloading goods because it transports and releases materials from inside the cell to the outside environment."
+  },
+  "CELL DIVISION": {
+    "appearance": "A soap bubble splitting into two smaller bubbles because the cell membrane pinches and divides to form two distinct cells.",
+    "function": "A photocopier duplicating documents because it creates identical copies of the original cell for growth, repair, or reproduction."
+  },
+  "MITOSIS": {
+    "appearance": "A  pinwheel resemble the spokes radiating from the center as the chromosomes are pulled apart, similar to the spinning motion.",
+    "function": "A photocopier accurately duplicates genetic material, ensuring each daughter cell receives an exact copy, just like how a photocopier produces identical copies of documents."
+  },
+  "INTERPHASE": {
+    "appearance": "A calm lake. Like the lake’s stillness, the cell appears inactive from the outside while critical preparations are happening internally.",
+    "function": "A charging batter. As the cell is actively accumulating energy and resources, just as a battery gathers energy to power future activity."
+  },
+  "CELL CYCLE": {
+    "appearance": "A clock best, with its circular, repeating structure representing the cyclical phases of growth, replication, and division.",
+    "function": "A factory assembly line. As each phase performs a specific task in an orderly sequence, ensuring the production of fully prepared cells, much like the efficient production of goods."
+  },
+  "MITOTIC PHASE": {
+    "appearance": "A zipper. As the chromosomes align and separate in a coordinated, linear fashion, much like the interlocking and separation of zipper teeth.",
+    "function": "Scissors. As they split the duplicated chromosomes into two identical sets, ensuring each daughter cell receives a complete set, just like cutting something into two equal parts."
+  },
+  "CHROMOSOMES": {
+    "appearance": "A twisted rope. Their coiled, thread-like structure is similar to the way strands twist together tightly for stability.",
+    "function": "A blueprint.They carry the genetic instructions necessary for building and maintaining an organism, just like a blueprint provides the plans for constructing a structure."
+  },
+  "DNA": {
+    "appearance": "A spiral staircase. Its double-helix structure resembling the twisted, coiling steps of a staircase.",
+    "function": "A recipe book. it contains all the instructions needed to create proteins and regulate biological processes, much like a recipe book provides step-by-step guidance for making a dish."
+  },
+  "PROPHASE": {
+    "appearance": "A tangled ball of yarn. As the chromosomes condense and become visible, similar to how loose strands of yarn clump together into a visible mass.",
+    "function": "Curtains being drawn open. As the nuclear envelope breaks down and the spindle fibers begin to form, revealing and preparing the chromosomes for the next phase, much like opening curtains to reveal a stage."
+  },
+  "METAPHASE": {
+    "appearance": "A line of dancers on stage. As chromosomes align neatly in the center of the cell, similar to performers standing in a perfectly straight line.",
+    "function": "A balancing scale. As the chromosomes are evenly positioned and ready to be separated, just like a scale carefully balances its weights before shifting."
+  },
+  "ANAPHASE": {
+    "appearance": "A tug-of-war. As chromosomes are pulled apart to opposite sides of the cell, similar to how two teams pull a rope in opposite directions.",
+    "function": "A cargo delivery. As it ensures each daughter cell receives the correct set of chromosomes, much like a system that transports goods to designated locations."
+  },
+  "TELOPHASE": {
+    "appearance": "a dumbbell. The dividing cell has two distinct, rounded sets of chromosomes on opposite ends, resembling the two weights of a dumbbell.",
+    "function": "a zipper. As it brings two separate entities (chromosome sets) closer, completing the process of cell division by sealing off the two nuclei, similar to how a zipper closes."
+  },
+  "MITOTIC SPINDLE": {
+    "appearance": "A bipolar fishing net. Its microtubules extend from two poles and reach out to capture and align chromosomes, much like a net spreading to catch objects.",
+    "function": "A puppet's strings. The spindle's fibers pull the chromosomes apart and guide them to opposite ends of the cell, similar to how strings control the movements of a puppet.  "
+  },
+  "KINETOCHORE": {
+    "appearance": "A button on fabric. It forms a small, round structure attached to the chromosome, similar to how a button is fastened to clothing.",
+    "function": "A clamp on a zipline. It securely attaches chromosomes to spindle fibers and helps them move toward opposite poles during cell division, much like how a clamp ensures smooth movement along a zipline."
+  },
+  "ASTER": {
+    "appearance": "A starburst. Its microtubules radiate outward from the centrosome, creating a star-like pattern similar to an explosion.",
+    "function": "A traffic signal hub. It helps organize and position the mitotic spindle by anchoring it to the cell membrane, guiding cell division much like a signal hub directs traffic flow."
+  },
+  "CENTROMERE": {
+    "appearance": "A belt around a bundle. It forms a constricted region in the chromosome, tightly holding the two sister chromatids together.",
+    "function": "A coupling link on a train. It connects the sister chromatids and ensures they move together until they are ready to be pulled apart during cell division, much like a coupling link keeps train cars joined until they need to separate."
+  },
+  "CENTROSOME": {
+    "appearance": "A wheel hub. It's a central structure with radiating spokes, much like how a hub connects to the wheel’s spokes.",
+    "function": "A traffic controller. As the centrosome organizes and directs microtubules during cell division, ensuring everything moves to the correct location"
+  },
+  "METAPHASE PLATE": {
+    "appearance": "A dinner plat. It's a flat, central plane where chromosomes align during metaphase, resembling how items are arranged in the center of a plate.",
+    "function": "A starting line. The organized position where chromosomes line up before being pulled apart, similar to how racers align before a race begins."
+  },
+  "CYTOKINESIS": {
+    "appearance": "A drawstring. As the contracting actin ring tightens around the cell’s middle, similar to how pulling a string cinches the bag closed.",
+    "function": "A zipper. It separates the cell into two, similar to how a zipper divides and secures two sides into separate compartments."
+  },
+  "CLEAVAGE FURROW": {
+    "appearance": "A shallow groove. It's narrow and curved shape as it forms around the middle of the cell during cytokinesis.",
+    "function": "A belt tightening around a waist. Just as a belt cinches to create division and support, it constricts to separate the two daughter cells during cell division, ensuring that each cell is properly formed and distinct."
+  },
+  "CELL PLATE": {
+    "appearance": "A pizza. Both are typically circular and flat, and it resembles the shape of a pizza as it expands outward during the process of cytokinesis in plant cells.",
+    "function": "A construction barrier. Just as a barrier is erected to separate spaces during construction and signal that work is being done, it forms to divide two new daughter cells, ensuring that they each have their own distinct cellular environment as they complete cell division."
+  },
+  "GAMETES": {
+    "appearance": "A seed. Both are small, round, and contain the potential for new life, representing the beginning stages of an organism.",
+    "function": "A key. Just as a key is necessary to unlock a door and allow entry, it is essential for fertilization, enabling the formation of a new organism by combining genetic material from two parents."
+  },
+  "MEIOSIS": {
+    "appearance": "A twisted ladder. The complex and intricate structure of chromosomes that undergo pairing and recombination, similar to the rungs and twists of a ladder during the process.",
+    "function": "A shuffle of a deck of cards. Just as shuffling mixes the cards to create new combinations, it reduces the chromosome number and creates genetic diversity in gametes, ensuring that each offspring has a unique combination of traits."
+  },
+  "DIPLOID CELL": {
+    "appearance": "A pair of shoes. Like a pair of shoes that comes in twos, it has two sets of chromosomes, one from each parent, which are paired together.",
+    "function": "A storage box with two compartments. Just as the box keeps items in organized pairs, it maintains two sets of genetic information, allowing for the combination and proper distribution of genetic material during reproduction."
+  },
+  "SISTER CHROMATIDS": {
+    "appearance": "A pair of identical knitting needles. Just like knitting needles are identical in size and structure and are attached to a single project, they are identical copies of a chromosome, connected at a central point.",
+    "function": "Two tickets to the same event. They are identical and meant to be separated, each one ensuring that the daughter cells receive an exact copy of genetic information during cell division."
+  },
+  "HOMOLOGOUS CHROMOSOMES": {
+    "appearance": "A pair of matching gloves. They are similar in size and shape but not identical, with each one representing a corresponding version from each parent.",
+    "function": "Two different editions of the same book. They carry the same types of information in the same order, but their content may have slight variations, providing the genetic diversity necessary for traits to be passed on during reproduction."
+  },
+  "ALLELES": {
+    "appearance": "Different flavors of the same ice cream. They appear similar in form but have small differences, representing the variations of a gene that may affect traits.",
+    "function": "Different software versions of the same app. Each version performs the same basic role, but slight variations in it can result in different features or traits in an organism."
+  },
+  "CROSSING OVER": {
+    "appearance": "Two intertwined ropes. Just as ropes twist and exchange fibers when intertwined, chromosomes exchange genetic material at points where they cross during meiosis.",
+    "function": "Swapping ingredients between two recipes. By exchanging parts of their genetic code, it increases genetic diversity, creating unique combinations in offspring."
+  },
+  "NUCLEAR MEMBRANE": {
+    "appearance": "A zipped-up bag because it encloses the nucleus securely, with openings resembling nuclear pores like zippers.",
+    "function": "A security checkpoint gate because it controls what enters and leaves the nucleus, allowing only specific molecules in or out."
+  },
+  "NUCLEUS": {
+    "appearance": "A peach pit—a round, dense core within a soft, structured outer part, with a distinct boundary.",
+    "function": "A control tower at an airport—it oversees and directs vital activities, managing the cell's operations by controlling gene expression and DNA replication."
+  },
+  "CELL": {
+    "appearance": "A small balloon filled with liquid, as both are enclosed structures with a flexible outer layer and internal contents.",
+    "function": "A factory, because it processes materials and performs specialized tasks to maintain its own operations, similar to how a factory produces and manages goods."
+  },
+  "NUCLEAR PORES": {
+    "appearance": "A sieve. They resemble small, round openings with fine perforations, allowing only certain molecules to pass through.",
+    "function": "A gate. They regulate the entry and exit of molecules in and out of the nucleus, much like a controlled checkpoint."
+  },
+  "NUCLEOLUS": {
+    "appearance": "A pea inside a fruit because it is a dense, round structure within the nucleus.",
+    "function": "A factory since it produces ribosomes, essential machinery for protein synthesis, much like a factory produces parts for assembly."
+  },
+  "CELL MEMBRANE": {
+    "appearance": "A soap bubble has a thin, flexible, and dynamic structure with a fluid-like quality, much like the lipid bilayer of the membrane.",
+    "function": "A security gate. It selectively allows substances to enter or exit the cell, maintaining control over the cell's internal environment."
+  },
+  "GOLGI BODIES": {
+    "appearance": "A stack of pancakes. Flattened, membrane-bound sacs that are neatly layered on top of each other.",
+    "function": "A post office because they modify, package, and distribute proteins and lipids to their appropriate destinations in the cell, ensuring everything reaches where it needs to go."
+  },
+  "ENDOPLASMIC RETICULUM": {
+    "appearance": "A maze. It has a complex, interconnected network of membranes that resemble winding pathways.",
+    "function": "A factory assembly line, as it is responsible for producing and transporting proteins and lipids, just like a line processes and assembles products."
+  },
+  "RIBOSOME": {
+    "appearance": "A small, round factory. Its compact, spherical shape resembles machinery built for efficient production.",
+    "function": "A 3D printer. It reads instructions and assembles proteins, much like a printer reads a design and builds an object layer by layer."
+  },
+  "MITOCHONDRION": {
+    "appearance": ": A pill-shaped object with folds inside, like a sleeping bag with crumpled layers. The inner membrane folds are the key feature that give it this texture.",
+    "function": "A power plant. It converts nutrients into usable energy for the cell, similar to how a plant generates electricity for a city."
+  },
+  "LYSOSOME": {
+    "appearance": "A small bubble. It is a spherical vesicle within the cell, enclosed by a membrane.",
+    "function": "A recycling plant. It breaks down waste materials and cellular debris, digesting them into smaller components that can be reused by the cell."
+  },
+  "VACUOLE": {
+    "appearance": "A large water balloon. It is a membrane-bound sac filled mostly with fluid, especially prominent in plant cells.",
+    "function": "A storage tank. It stores water, nutrients, and waste, helping maintain the cell's shape and internal balance."
+  },
+  "CENTRIOLE": {
+    "appearance": "A bundle of drinking straws arranged in a cylindrical shape. It consists of microtubules organized in a specific pattern.",
+    "function": "A construction manager. It helps organize the assembly of the spindle fibers that guide chromosome separation during cell division."
+  },
+  "MICROTUBULE": {
+    "appearance": "A hollow straw. It has a cylindrical shape and is hollow in the center, resembling the structure of microtubules in cells.",
+    "function": "A conveyor belt. They facilitate the transport of organelles and vesicles throughout the cell, much like a conveyor belt moves items from one place to another."
+  },
+  "PHOSPHOLIPIDS": {
+    "appearance": "A balloon with a string. A round hydrophilic head and two long hydrophobic tails, similar to the shape of a balloon attached to a string.",
+    "function": "A fence. They form a selective barrier around cells, regulating what enters and exits."
+  },
+  "CYTOSOL": {
+    "appearance": "A gelatinous substance, akin to a thick soup. It has a semi-fluid consistency and fills the cell, similar to how soup fills a bowl.",
+    "function": "It serves as a medium for various biochemical reactions and cellular processes, much like a marketplace facilitates interactions and transactions between vendors and customers."
+  },
+  "NUCLEAR ENVELOPE": {
+    "appearance": "A zipper bag. It has a double layer with pores for selective exchange, enclosing the contents securely inside.",
+    "function": "A secure gated fence. It selectively allows molecules to pass in and out, protecting the nucleus's contents while maintaining controlled exchange with the cytoplasm."
+  },
+  "PHAGOSOMES": {
+    "appearance": "A bubble. They are spherical, membrane-bound structures that form around particles inside the cell, similar to how bubbles enclose air or liquid.",
+    "function": "A garbage bag. They enclose unwanted or foreign particles to isolate them, so the cell can later dispose of or degrade them."
+  },
+  "CISTERNAE": {
+    "appearance": "A stack of pancakes. They are flattened, disc-like structures that are often arranged in layers within the Golgi apparatus, similar to stacked pancakes",
+    "function": "A shipping center. They modify, package, and transport proteins and other molecules to their appropriate destinations, just like a center processes and ships products."
+  },
+  "CELL WALL": {
+    "appearance": ": A brick wall. It is a rigid, structured layer that surrounds plant cells, similar to how a brick wall provides a sturdy outer boundary.",
+    "function": "A fortress. It protects the cell from external harm and provides structural support, much like a fortress safeguards and maintains the shape of what's inside."
+  },
+  "STROMA": {
+    "appearance": "A sponge. It is porous and provides structure while allowing other components to move through it.",
+    "function": "A scaffold. it supports and anchors essential elements in place, much like how the stroma maintains the framework for cells and tissues."
+  },
+  "GRANA": {
+    "appearance": "A stack of coins. They are made up of stacked thylakoid membranes in chloroplasts. ",
+    "function": "A solar panel. They capture and convert sunlight into energy through photosynthesis, which powers the cell's functions."
+  },
+  "THYLAKOIDS": {
+    "appearance": "A stack of pancakes. They are flat, disk-like structures arranged in stacks called grana within chloroplasts.",
+    "function": "Solar panels. They capture and convert light energy into usable energy, much like thylakoids do during photosynthesis."
+  },
+  "CHLOROPHYLL": {
+    "appearance": "A seesolar panel because it is a flat, light-absorbing pigment that captures sunlight efficiently.",
+    "function": "A battery since it converts sunlight into usable energy, storing it for the cell’s metabolic processes."
+  },
+  "CHLOROPLAST": {
+    "appearance": "A green coin purse. Its oval shape and stacked internal membranes, which look like folded or layered compartments.",
+    "function": "A solar panel. It captures sunlight and converts it into energy for the cell, similar to how solar panels generate electricity from sunlight."
+  },
+  "PHOTOSYNTHESIS": {
+    "appearance": "Sunflower. Its vibrant yellow petals represent the capture of sunlight and energy conversion.",
+    "function": "A solar panel. It converts sunlight into usable energy for the cell."
+  },
+  "LUMEN": {
+    "appearance": "A hollow glass tube. It symbolizes the empty space within cells that facilitates transport and storage.",
+    "function": "A pipeline. It represents the flow of substances through the cell's inner compartments."
+  },
+  "PROKARYOTES": {
+    "appearance": "A simple stone reflexts its basic structure and lack of complexity compared to eukaryotes.",
+    "function": "A basic tool highlights its straightforward functions and roles in various environments."
+  },
+  "EUKARYOTES": {
+    "appearance": "A multi-layered cake, showcasing the complexity and organization of different cell types and organelles.",
+    "function": "A sophisticated machine, illustrating the intricate processes and specialized functions of these advanced cells."
+  },
+  "CILIA": {
+    "appearance": "A feather, representing the delicate and numerous structures that provide movement and sensory functions.",
+    "function": "A wind turbine, demonstrating how they harness energy for movement and environmental interaction."
+  },
+  "FLAGELLA": {
+    "appearance": "A long, flowing ribbon, capturing the whip-like motion that propels cells forward.",
+    "function": "A motorboat, symbolizing the propulsion and mobility that allows cells to navigate their surroundings."
+  },
+  "VILLI": {
+    "appearance": "A field of wheat, illustrating the finger-like projections that increase surface area for absorption.",
+    "function": "A sponge, highlighting their role in maximizing absorption of nutrients in the digestive system."
+  },
+  "MICROVILLI": {
+    "appearance": "A brush, emphasizing the tiny, densely packed projections that enhance absorption efficiency.",
+    "function": "A vacuum cleaner, emphasizing the efficiency of absorption and surface area expansion."
+  },
+  "DIFFUSION": {
+    "appearance": "A spreading ink drop in water, visually demonstrating the movement of particles from high to low concentration.",
+    "function": "A perfume bottle, illustrating the way scents (particles) spread through the air, similar to how substances move across membranes."
+  },
+  "ATP": {
+    "appearance": "A battery, symbolizing the energy currency that powers cellular activities.",
+    "function": "A power generator, showcasing its role in providing energy for cellular processes and functions."
   }
 }

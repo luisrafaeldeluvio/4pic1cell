@@ -359,8 +359,8 @@ pauseBtn.addEventListener('click', showPauseContainer);
 shareBtn.addEventListener('click', async () => {
   //navigator.clipboard.writeText(50)
   const shareData = {
-    title: "MDN",
-    text: "Learn web development on MDN!"
+    title: "Help me solve this puzzle in 4pic1cell!",
+    text: `Help me solve this puzzle in 4pic1cell!\n\nThis is my guess so far:\n${guess}`
   };
   
   try {
