@@ -2,6 +2,7 @@ let word;
 let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
 let score = 0;
+let hintcount = 0;
 
 let terms = [];
 
@@ -9,6 +10,8 @@ const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
 const scoreContainer = document.querySelector('.score');
 const picContainer = document.querySelector('.pic-container');
+const pauseBtn = document.getElementById('pause-btn');
+const pauseContainer = document.querySelector('.modal__pause');
 const hintBtn = document.getElementById('hint-btn');
 const hintContainer = document.querySelector('.modal__hint');
 const shuffleBtn = document.getElementById('shuffle-btn');
@@ -30,6 +33,23 @@ function getGuessAmount() {
     }
   }
   return amount;
+}
+
+function modScore(state, mod) {
+  
+  switch (state) {
+    case 'add':
+      score += mod;
+      console.log(`added ${mod}`);
+      break;
+    case 'sub':
+      score -= mod;
+      console.log(`removed ${mod}`);
+      break;
+  }
+  
+  if (score <= 0) score = 0;
+  
 }
 
 function pickGuess() {
@@ -149,11 +169,9 @@ function testGuess() {
   
   if (answer === _word) {
     soundRight.play();
-    console.log('you won')
-    score += getWordAmount();
+    modScore('add', getWordAmount() - hintcount);
     newRound();
   } else {
-    console.log('wrong answer')
     soundWrong.play();
   }
   
@@ -164,29 +182,40 @@ function newRound() {
   guess = [];
   letters = [];
   
-  hintCount = 0;
+  hintcount = 0;
   
   setGuessContainer();
   setLetters();
   setImages();
+  setPicDesc();
   console.log(word);
   
   scoreContainer.innerHTML = score;
 }
 
+function setPicDesc() {
+  fetch('pic-description.json')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        picContainer.querySelector('#picHint-2').innerHTML = getWordAmount();
+        picContainer.querySelector('#picHint-3').innerHTML = data[word].appearance;
+        picContainer.querySelector('#picHint-4').innerHTML = data[word].function;
+      })
+}
+
 picContainer.addEventListener('click', (event) => {
   target = event.target;
+  const id = target.id.match(/\d+/)[0];
+  
   
   if (target.id.includes('pic-')) {
-    const id = target.id.match(/\d+/)[0];
-    
     target.style.display = "none";
     picContainer.querySelector(`#picHint-${id}`).style.display = "block";
   }
   
   if (target.id.includes('picHint-')) {
-    const id = target.id.match(/\d+/)[0];
-    
     target.style.display = "none";
     picContainer.querySelector(`#pic-${id}`).style.display = "block";
   }
@@ -291,7 +320,7 @@ hintBtn.addEventListener('click', () => {
     }
   }
   
-  score -= 1;
+  hintcount++;
   sound.play();
     
   updateLetterContainer()
@@ -303,6 +332,7 @@ hintBtn.addEventListener('click', () => {
 
 clueBtn.addEventListener('click', () => {
   if (hintContainer.style.display === "block") return;
+  if (pauseContainer.style.display === "block") return;
   
   fetch('hint.json')
   .then(response => {
@@ -311,13 +341,24 @@ clueBtn.addEventListener('click', () => {
   .then(data => {
     hintContainer.style.display = "block";
     hintContainer.innerHTML = data[word];
-    score -= Math.round(score * 0.25);
+    hintcount += Math.round(getWordAmount() * 0.25);
   })
 })
 
+async function showPauseContainer() {
+  if (pauseContainer.style.display === "block") return;
+  if (hintContainer.style.display === "block") return;
+
+  await new Promise(resolve => setTimeout(resolve, 0));
+
+  pauseContainer.style.display = "block";
+}
+pauseBtn.addEventListener('click', showPauseContainer);
+
 window.onclick = function(event) {
-  //if (event.target == hintContainer) return;
+  if (event.target === hintContainer || event.target === pauseContainer) return;
   hintContainer.style.display = "none";
+  pauseContainer.style.display = "none";
 }
 
 document.addEventListener('DOMContentLoaded', function() {

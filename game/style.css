@@ -36,6 +36,19 @@ main {
   margin-bottom: 10%;
 }
 
+#pause-btn {
+  margin: 1.25%;
+  padding: 0;
+  line-height: 10px;
+  background: #444cf7;
+  border: none;
+  border-radius: 10px;
+  box-shadow:
+    0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
+    0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
+    1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
+}
+
 .guess-container {
   width: auto;
   max-width: 95%;
@@ -97,31 +110,6 @@ main {
   display: none;
   background: #444cf7;
 }
-
-.letter-container {
-  display: grid;
-  grid-template-columns: repeat(10, auto);
-  grid-gap: 5px;
-  font-size: 2em;
-  font-weight: 425;
-  background: #444cf7;
-  margin: 2.5%;
-  padding: 1%;
-  width: 100%;
-  margin-bottom: 1.25%;
-  border-radius: 10px;
-  box-shadow:
-    0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
-    0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
-    1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
-}
-
-.letter-container > span {
-  width: 35px;
-  height: 35px;
-  text-align: center;
-}
-
 .shake-container {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
@@ -192,9 +180,34 @@ main {
   width: 100%;
   display: flex;
   flex-flow: row wrap;
-  justify-content:center;
+  justify-content: center;
   align-content: space-around;
 }
+
+.letter-container {
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+  grid-gap: 5px;
+  font-size: 2em;
+  font-weight: 425;
+  background: #444cf7;
+  margin: 2.5%;
+  padding: 1%;
+  width: 100%;
+  margin-bottom: 1.25%;
+  border-radius: 10px;
+  box-shadow:
+    0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
+    0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
+    1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
+}
+
+.letter-container > span {
+  width: 35px;
+  height: 35px;
+  text-align: center;
+}
+
 
 .letter-container {
   flex-grow: 10;
@@ -214,6 +227,7 @@ main {
 
 .modal__hint {
   font-size: 1.25em;
+  font-weight: 425;
   
   position: fixed;
   display: none;
@@ -223,6 +237,24 @@ main {
   transform: translate(-50%, -50%);
   width: 80%;
   height: 20%;
+  background: #444cf7;
+ 
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.modal__pause {
+  font-size: 1.25em;
+  font-weight: 425;
+  
+  position: fixed;
+  display: none;
+  z-index: 10;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 40%;
   background: #444cf7;
  
   border-radius: 20px;
