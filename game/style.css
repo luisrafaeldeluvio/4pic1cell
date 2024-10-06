@@ -135,36 +135,10 @@ main {
   }
 }
 
-#hint-btn {
+#hint-btn, #clue-btn, #shuffle-btn, #share-btn {
   height: 35px;
   margin: 1.25%;
   padding: 0;
-  background: #444cf7;
-  border: none;
-  border-radius: 10px;
-  box-shadow:
-    0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
-    0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
-    1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
-}
-
-#clue-btn {
-  height: 35px;
-  margin: 1.25%;
-  padding: 0;
-  background: #444cf7;
-  border: none;
-  border-radius: 10px;
-  box-shadow:
-    0.3px 0.5px 0.7px hsl(240deg 31% 57 / 0.34),
-    0.4px 0.8px 1px -1.2px hsl(240deg 31% 57 / 0.34),
-    1px 2px 2.5px -2.5px hsl(240deg 31% 57 / 0.34);
-}
-
-#shuffle-btn {
-  margin: 1.25%;
-  padding: 0;
-  line-height: 10px;
   background: #444cf7;
   border: none;
   border-radius: 10px;
@@ -214,11 +188,15 @@ main {
 }
 
 #clue-btn {
-  flex-grow: 2;
+  flex-grow: 1;
 }
 
 #hint-btn {
   flex-grow: 7;
+}
+
+#share-btn {
+  flex-grow: 1;
 }
 
 #shuffle-btn {

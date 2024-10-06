@@ -16,6 +16,7 @@ const hintBtn = document.getElementById('hint-btn');
 const hintContainer = document.querySelector('.modal__hint');
 const shuffleBtn = document.getElementById('shuffle-btn');
 const clueBtn = document.getElementById('clue-btn')
+const shareBtn = document.getElementById('share-btn')
 
 function getWordAmount() {
   if (word.includes(' ')) {
@@ -354,6 +355,21 @@ async function showPauseContainer() {
   pauseContainer.style.display = "block";
 }
 pauseBtn.addEventListener('click', showPauseContainer);
+
+shareBtn.addEventListener('click', async () => {
+  //navigator.clipboard.writeText(50)
+  const shareData = {
+    title: "MDN",
+    text: "Learn web development on MDN!"
+  };
+  
+  try {
+    await navigator.share(shareData);
+    
+  } catch (err) {
+    console.log(err);
+  }
+})
 
 window.onclick = function(event) {
   if (event.target === hintContainer || event.target === pauseContainer) return;
