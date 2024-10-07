@@ -3,6 +3,7 @@ let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
 let score = 0;
 let hintcount = 0;
+let time = 30;
 
 let terms = [];
 
@@ -16,7 +17,8 @@ const hintBtn = document.getElementById('hint-btn');
 const hintContainer = document.querySelector('.modal__hint');
 const shuffleBtn = document.getElementById('shuffle-btn');
 const clueBtn = document.getElementById('clue-btn')
-const shareBtn = document.getElementById('share-btn')
+const shareBtn = document.getElementById('share-btn');
+const timerContainer = document.querySelector('.timer'); 
 
 function getWordAmount() {
   if (word.includes(' ')) {
@@ -171,6 +173,7 @@ function testGuess() {
   if (answer === _word) {
     soundRight.play();
     modScore('add', getWordAmount() - hintcount);
+    increaseTimer(5)
     newRound();
   } else {
     soundWrong.play();
@@ -200,16 +203,45 @@ function setPicDesc() {
         return response.json();
       })
       .then(data => {
-        picContainer.querySelector('#picHint-2').innerHTML = getWordAmount();
+        picContainer.querySelector('#picHint-2').innerHTML = `${getWordAmount()} letters`;
         picContainer.querySelector('#picHint-3').innerHTML = data[word].appearance;
         picContainer.querySelector('#picHint-4').innerHTML = data[word].function;
       })
 }
 
+let Timer;
+let isTimerPaused = false;
+function startTimer(seconds) {
+  timerContainer.innerHTML = seconds;
+  seconds -= 1;
+  Timer = setTimeout(() => {
+    startTimer(seconds)
+    if (seconds === 0) clearTimeout(Timer)
+  }, 1000)
+}
+
+function pauseTimer() {
+  clearTimeout(Timer)
+  isTimerPaused = true;
+}
+
+function resumeTimer() {
+  const t = parseInt(timerContainer.innerHTML)
+  startTimer(t)
+  isTimerPaused = false;
+}
+
+function increaseTimer(seconds) {
+  clearTimeout(Timer)
+  const t = parseInt(timerContainer.innerHTML)
+  startTimer(t + seconds)
+}
+
+startTimer(time)
+
 picContainer.addEventListener('click', (event) => {
   target = event.target;
   const id = target.id.match(/\d+/)[0];
-  
   
   if (target.id.includes('pic-')) {
     target.style.display = "none";
@@ -217,6 +249,7 @@ picContainer.addEventListener('click', (event) => {
   }
   
   if (target.id.includes('picHint-')) {
+    if (target.id === 'picHint-2') return;
     target.style.display = "none";
     picContainer.querySelector(`#pic-${id}`).style.display = "block";
   }
@@ -353,8 +386,13 @@ async function showPauseContainer() {
   await new Promise(resolve => setTimeout(resolve, 0));
 
   pauseContainer.style.display = "block";
+  
 }
 pauseBtn.addEventListener('click', showPauseContainer);
+
+pauseBtn.addEventListener('click', () => {
+  pauseTimer();
+});
 
 shareBtn.addEventListener('click', async () => {
   //navigator.clipboard.writeText(50)
@@ -375,6 +413,11 @@ window.onclick = function(event) {
   if (event.target === hintContainer || event.target === pauseContainer) return;
   hintContainer.style.display = "none";
   pauseContainer.style.display = "none";
+  
+  if (isTimerPaused === true) {
+    resumeTimer();
+  } 
+  
 }
 
 document.addEventListener('DOMContentLoaded', function() {

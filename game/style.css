@@ -114,6 +114,12 @@ main {
   padding: 1em;
   overflow-x: scroll;
 }
+
+#picHint-2 {
+  display: block;
+  font-size: 2em;
+  text-align: center;
+}
 .shake-container {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
