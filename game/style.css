@@ -1,11 +1,13 @@
 * {
   box-sizing: border-box;
   /* border: 1px solid black; */
+  color: #222;
+  font-weight: 425;
 }
 
 body {
   font-size: 16px;
-  font: #222;
+  
   margin: 0;
   padding: 0;
   user-select: none;
@@ -58,7 +60,7 @@ main {
   background: #444cf7;
   text-align: center;
   font-size: 1.5em;
-  font-weight: 425;
+  
   
   position: absolute;
   left: 47.5%;
@@ -110,14 +112,14 @@ main {
   display: none;
   background: #444cf7;
   font-size: 0.80em;
-  font-weight: 425;
+  
   padding: 1em;
   overflow-x: scroll;
 }
 
 #picHint-2 {
   display: block;
-  font-size: 2em;
+  font-size: 1.8em;
   text-align: center;
 }
 .shake-container {
@@ -173,7 +175,7 @@ main {
   grid-template-columns: repeat(10, auto);
   grid-gap: 5px;
   font-size: 2em;
-  font-weight: 425;
+  
   background: #444cf7;
   margin: 2.5%;
   padding: 1%;
@@ -215,7 +217,7 @@ main {
 
 .modal__hint {
   font-size: 1.25em;
-  font-weight: 425;
+  
   
   position: fixed;
   display: none;
@@ -232,9 +234,6 @@ main {
 }
 
 .modal__pause {
-  font-size: 1.25em;
-  font-weight: 425;
-  
   position: fixed;
   display: none;
   z-index: 10;
@@ -249,3 +248,31 @@ main {
   padding: 20px;
 }
 
+.gameover-container {
+  position: fixed;
+  display: none;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);;
+  
+}
+
+.gameover-container > span {
+  font-size: 5em;
+  color: white;
+}
+
+.modal__pause button {
+  background: #444cf7;
+  border: none;
+  font-size: 1.75em;
+  display: flex;
+}
+
+.modal__pause button:not(:last-child) {
+  margin-bottom: 20px;
+}

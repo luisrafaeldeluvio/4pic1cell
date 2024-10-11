@@ -3,7 +3,9 @@ let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
 let score = 0;
 let hintcount = 0;
-let time = 30;
+let time = 60;
+
+let isGameOver = false;
 
 let terms = [];
 
@@ -173,8 +175,9 @@ function testGuess() {
   if (answer === _word) {
     soundRight.play();
     modScore('add', getWordAmount() - hintcount);
-    increaseTimer(5)
+    increaseTimer(10)
     newRound();
+    vibrate(40)
   } else {
     soundWrong.play();
   }
@@ -203,45 +206,60 @@ function setPicDesc() {
         return response.json();
       })
       .then(data => {
-        picContainer.querySelector('#picHint-2').innerHTML = `${getWordAmount()} letters`;
-        picContainer.querySelector('#picHint-3').innerHTML = data[word].appearance;
-        picContainer.querySelector('#picHint-4').innerHTML = data[word].function;
+        picContainer.querySelector('#picHint-2').innerHTML = `${getWordAmount()} LETTERS`;
+        picContainer.querySelector('#picHint-3').innerHTML = data[word].appearance.toUpperCase();
+        picContainer.querySelector('#picHint-4').innerHTML = data[word].function.toUpperCase();
       })
 }
 
 let Timer;
 let isTimerPaused = false;
 function startTimer(seconds) {
+  if (isTimerPaused) return;
   timerContainer.innerHTML = seconds;
   seconds -= 1;
   Timer = setTimeout(() => {
     startTimer(seconds)
-    if (seconds === 0) clearTimeout(Timer)
+    if (seconds === 0) {
+      clearTimeout(Timer)
+      isGameOver = true;
+      document.querySelector('.gameover-container').style.display = "block";
+      localStorage.setItem("score", score);
+    }
   }, 1000)
 }
 
 function pauseTimer() {
   clearTimeout(Timer)
   isTimerPaused = true;
+  console.log('paused', isTimerPaused);
 }
 
 function resumeTimer() {
   const t = parseInt(timerContainer.innerHTML)
-  startTimer(t)
   isTimerPaused = false;
+  startTimer(t)
+  console.log('resume', isTimerPaused);
 }
 
 function increaseTimer(seconds) {
   clearTimeout(Timer)
-  const t = parseInt(timerContainer.innerHTML)
-  startTimer(t + seconds)
+  const t = parseInt(timerContainer.innerHTML) + seconds
+  startTimer(t <= 60 ? t : 60)
 }
 
 startTimer(time)
 
+function vibrate(ms) {
+  if ('vibrate' in navigator) navigator.vibrate(ms)
+}
+
 picContainer.addEventListener('click', (event) => {
+  if (isGameOver) return;
   target = event.target;
   const id = target.id.match(/\d+/)[0];
+  if (target.id === 'pic-1') return;
+  if (target.id === 'picHint-2') return;
   
   if (target.id.includes('pic-')) {
     target.style.display = "none";
@@ -249,13 +267,16 @@ picContainer.addEventListener('click', (event) => {
   }
   
   if (target.id.includes('picHint-')) {
-    if (target.id === 'picHint-2') return;
     target.style.display = "none";
     picContainer.querySelector(`#pic-${id}`).style.display = "block";
+    
   }
+  
+  vibrate(28)
 })
 
 letterContainer.addEventListener('click', (event) => {
+  if (isGameOver) return;
   clickedLetter = event.target;
   const sound = new Audio('assets/click.wav')
   
@@ -264,6 +285,7 @@ letterContainer.addEventListener('click', (event) => {
   if (clickedLetter.innerHTML === '') return;
   
   sound.play();
+  vibrate(28)
   
   //remove the clicked letter from letter container
   for (var i = 0; i < letters.length; i++) {
@@ -293,6 +315,7 @@ letterContainer.addEventListener('click', (event) => {
 });
 
 guessContainer.addEventListener('click', (event) => {
+  if (isGameOver) return;
   const clickedLetter = event.target;
   const sound = new Audio('assets/undo.wav');
   
@@ -300,6 +323,7 @@ guessContainer.addEventListener('click', (event) => {
   if (clickedLetter.innerHTML === '') return;
   
   sound.play();
+  vibrate(28)
   
   //replaces clicked letter to an empty string in the
   // guess array
@@ -321,6 +345,7 @@ guessContainer.addEventListener('click', (event) => {
 
 let shuffleCooldown = false;
 shuffleBtn.addEventListener('click', () => {
+  if (isGameOver) return;
   if (shuffleCooldown) return;
   
   const sound = new Audio('assets/shuffle.wav');
@@ -333,9 +358,12 @@ shuffleBtn.addEventListener('click', () => {
     letterContainer.classList.remove('shake-container')
   }, 600);
   
+  vibrate(28)
+  
 })
 
 hintBtn.addEventListener('click', () => {
+  if (isGameOver) return;
   const sound = new Audio('assets/click.wav')
   
   const _word = word.replaceAll(' ', '')
@@ -356,6 +384,7 @@ hintBtn.addEventListener('click', () => {
   
   hintcount++;
   sound.play();
+  vibrate(28)
     
   updateLetterContainer()
   if (getGuessAmount() === getWordAmount()) {
@@ -365,6 +394,7 @@ hintBtn.addEventListener('click', () => {
 })
 
 clueBtn.addEventListener('click', () => {
+  if (isGameOver) return;
   if (hintContainer.style.display === "block") return;
   if (pauseContainer.style.display === "block") return;
   
@@ -374,18 +404,23 @@ clueBtn.addEventListener('click', () => {
   })
   .then(data => {
     hintContainer.style.display = "block";
-    hintContainer.innerHTML = data[word];
+    hintContainer.innerHTML = data[word].toUpperCase();
     hintcount += Math.round(getWordAmount() * 0.25);
   })
+  
+  vibrate(28)
 })
 
 async function showPauseContainer() {
+  if (isGameOver) return;
   if (pauseContainer.style.display === "block") return;
   if (hintContainer.style.display === "block") return;
 
   await new Promise(resolve => setTimeout(resolve, 0));
 
   pauseContainer.style.display = "block";
+  
+  vibrate(28)
   
 }
 pauseBtn.addEventListener('click', showPauseContainer);
@@ -395,28 +430,50 @@ pauseBtn.addEventListener('click', () => {
 });
 
 shareBtn.addEventListener('click', async () => {
+  if (isGameOver) return;
   //navigator.clipboard.writeText(50)
   const shareData = {
     title: "Help me solve this puzzle in 4pic1cell!",
-    text: `Help me solve this puzzle in 4pic1cell!\n\nThis is my guess so far:\n${guess}`
+    text: `Help me solve this puzzle in 4pic1cell`,
+    url: 'https://luisrafaeldeluvio.github.io/4pic1cell/home/'
   };
+  
+  vibrate(28)
   
   try {
     await navigator.share(shareData);
-    
   } catch (err) {
     console.log(err);
   }
 })
 
-window.onclick = function(event) {
-  if (event.target === hintContainer || event.target === pauseContainer) return;
-  hintContainer.style.display = "none";
+const resumeBtn = document.getElementById('resume');
+
+resumeBtn.addEventListener('click', () => {
   pauseContainer.style.display = "none";
+  resumeTimer()
+  vibrate(28)
+})
+
+const exitBtn = document.getElementById('exit')
+exitBtn.addEventListener('click', () => {
+  window.location.href = '../home/index.html'
+  vibrate(28)
+})
+
+window.onclick = function(event) {
+  if (isGameOver) return;
   
-  if (isTimerPaused === true) {
-    resumeTimer();
-  } 
+  if (hintContainer.style.display === "block") {
+    if (event.target === hintContainer) return;
+    hintContainer.style.display = "none";
+  }
+  
+  if (pauseContainer.style.display === "block") {
+    if (event.target === pauseContainer || event.target.classList.contains('modal__pause--btn')) return;
+    pauseContainer.style.display = "none";
+    if (isTimerPaused) resumeTimer()
+  }
   
 }
 
