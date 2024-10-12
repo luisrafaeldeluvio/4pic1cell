@@ -1,6 +1,13 @@
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../OpenDyslexic-Regular.woff");
+}
+
 * {
   box-sizing: border-box;
   /* border: 1px solid black; */
+  text-transform: uppercase;
+  font-family: "OpenDyslexic", sans-serif;
 }
 
 body {
@@ -11,25 +18,64 @@ body {
   user-select: none;
   width: 100%;
   height: 100%;
-  font-family: 'Robotiko', sans-serif;
   
   background-color: #e5e5f7;
   background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23444cf7' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
-#credits {
-  width: 100%;  
-  background: red;
-}
-
-#credits > span {
-  display: block;
-  white-space: nowrap;
+.credits {
   overflow: hidden;
-  overflow-x: scroll;
+  width: 100%;
 }
 
-#settings-btn {
+.credits__content {
+  white-space: nowrap;
+  animation: scroll 20s linear infinite;
+}
+
+.credits__content span {
+  display: inline-block;
+  padding-left: 24px;
+  margin-left:50px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(-550%, 0)
+  }
+}
+
+h1 {
+  font-size: 5em;
+  text-align: center;
+}
+
+.highscore {
+  text-align: center;
+  padding: 1%;
+}
+
+.btn {
+  background: #444cf7;
+  border: none;
+  border-radius: 10px;
+  display: table;
+  font-size: 1em;
+  padding: 2.5%;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn__play {
+  margin: 0 auto;
+}
+
+.btn__settings {
   position: fixed;
   bottom: 0;
 }

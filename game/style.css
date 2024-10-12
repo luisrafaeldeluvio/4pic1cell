@@ -1,8 +1,13 @@
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("../OpenDyslexic-Regular.woff");
+}
+
 * {
   box-sizing: border-box;
   /* border: 1px solid black; */
   color: #222;
-  font-weight: 425;
+  font-family: "OpenDyslexic", sans-serif;
 }
 
 body {
@@ -13,7 +18,7 @@ body {
   user-select: none;
   width: 100%;
   height: 100%;
-  font-family: 'Robotiko', sans-serif;
+  
 }
 
 main {
@@ -28,7 +33,7 @@ main {
 }
 
 .menu {
-  font-size: 2em;
+  font-size: 1.5em;
   width: 100%;
   background: #444cf7;
   
@@ -59,7 +64,7 @@ main {
   
   background: #444cf7;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1em;
   
   
   position: absolute;
@@ -111,7 +116,7 @@ main {
 .pic-hint {
   display: none;
   background: #444cf7;
-  font-size: 0.80em;
+  font-size: 0.50em;
   
   padding: 1em;
   overflow-x: scroll;
@@ -119,7 +124,7 @@ main {
 
 #picHint-2 {
   display: block;
-  font-size: 1.8em;
+  font-size: 1em;
   text-align: center;
 }
 .shake-container {
@@ -174,7 +179,7 @@ main {
   display: grid;
   grid-template-columns: repeat(10, auto);
   grid-gap: 5px;
-  font-size: 2em;
+  font-size: 1.25em;
   
   background: #444cf7;
   margin: 2.5%;
@@ -216,7 +221,8 @@ main {
 }
 
 .modal__hint {
-  font-size: 1.25em;
+  font-size: 1em;
+  overflow-x: scroll;
   
   
   position: fixed;
@@ -262,14 +268,14 @@ main {
 }
 
 .gameover-container > span {
-  font-size: 5em;
+  font-size: 2.5em;
   color: white;
 }
 
 .modal__pause button {
   background: #444cf7;
   border: none;
-  font-size: 1.75em;
+  font-size: 1.5em;
   display: flex;
 }
 
