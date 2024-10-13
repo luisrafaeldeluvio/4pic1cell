@@ -113,6 +113,11 @@ main {
 
 }
 
+
+.pic-container img:hover {
+  scale: 1.1;
+}
+
 .pic-hint {
   display: none;
   background: #444cf7;
@@ -124,7 +129,7 @@ main {
 
 #picHint-2 {
   display: block;
-  font-size: 1em;
+  font-size: 2.5em;
   text-align: center;
 }
 .shake-container {
@@ -153,9 +158,10 @@ main {
 }
 
 #hint-btn, #clue-btn, #shuffle-btn, #share-btn {
-  height: 35px;
-  margin: 1.25%;
-  padding: 0;
+  margin: 1%;
+  display: flex;
+  justify-content: center;
+  background-position: center;
   background: #444cf7;
   border: none;
   border-radius: 10px;

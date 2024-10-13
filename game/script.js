@@ -53,7 +53,7 @@ function modScore(state, mod) {
       break;
   }
   
-  if (score <= 0) score = 0;
+  if (score < 0) score = 0;
   
 }
 
@@ -138,6 +138,7 @@ function setImages() {
   
   const word_ = word.replace(' ', '_')
   
+  document.getElementById(`pic-1`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-1.webp`
   document.getElementById(`pic-3`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-3.webp`
   document.getElementById(`pic-4`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-4.webp`
   
@@ -206,7 +207,7 @@ function setPicDesc() {
         return response.json();
       })
       .then(data => {
-        picContainer.querySelector('#picHint-2').innerHTML = `${getWordAmount()} LETTERS`;
+        picContainer.querySelector('#picHint-2').innerHTML = getWordAmount();
         picContainer.querySelector('#picHint-3').innerHTML = data[word].appearance.toUpperCase();
         picContainer.querySelector('#picHint-4').innerHTML = data[word].function.toUpperCase();
       })
@@ -224,10 +225,15 @@ function startTimer(seconds) {
       clearTimeout(Timer)
       isGameOver = true;
       document.querySelector('.gameover-container').style.display = "block";
-      localStorage.setItem("score", score);
+      
+      if (score > parseInt(localStorage.getItem("score"))) localStorage.setItem("score", score);
+      
+      
     }
   }, 1000)
 }
+
+console.log(typeof parseInt(localStorage.getItem("score")));
 
 function pauseTimer() {
   clearTimeout(Timer)
@@ -462,7 +468,8 @@ exitBtn.addEventListener('click', () => {
 })
 
 window.onclick = function(event) {
-  if (isGameOver) return;
+  if (isGameOver) window.location.href = '../home/index.html'
+  
   
   if (hintContainer.style.display === "block") {
     if (event.target === hintContainer) return;
@@ -474,6 +481,7 @@ window.onclick = function(event) {
     pauseContainer.style.display = "none";
     if (isTimerPaused) resumeTimer()
   }
+  
   
 }
 

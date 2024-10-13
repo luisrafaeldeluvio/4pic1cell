@@ -1,0 +1,1 @@
+document.querySelector('.highscore').innerHTML = `Highscore: ${localStorage.getItem('score')}`
