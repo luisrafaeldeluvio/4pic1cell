@@ -12,7 +12,7 @@ let terms = [];
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
 const scoreContainer = document.querySelector('.score');
-const picContainer = document.querySelector('.pic-container');
+const picContainer = document.querySelector('.image');
 const pauseBtn = document.getElementById('pause-btn');
 const pauseContainer = document.querySelector('.modal__pause');
 const hintBtn = document.getElementById('hint-btn');
@@ -138,9 +138,9 @@ function setImages() {
   
   const word_ = word.replace(' ', '_')
   
-  document.getElementById(`pic-1`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-1.webp`
-  document.getElementById(`pic-3`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-3.webp`
-  document.getElementById(`pic-4`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-4.webp`
+  document.querySelector(`.image--1`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-1.webp`
+  document.querySelector(`.image--3`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-3.webp`
+  document.querySelector(`.image--4`).src = `https://res.cloudinary.com/dxiisdca0/image/upload/v1725371308/4pic1word/${word_}-4.webp`
   
 }
 
@@ -207,9 +207,9 @@ function setPicDesc() {
         return response.json();
       })
       .then(data => {
-        picContainer.querySelector('#picHint-2').innerHTML = getWordAmount();
-        picContainer.querySelector('#picHint-3').innerHTML = data[word].appearance.toUpperCase();
-        picContainer.querySelector('#picHint-4').innerHTML = data[word].function.toUpperCase();
+        picContainer.querySelector('.image__clue--2').innerHTML = getWordAmount();
+        picContainer.querySelector('.image__clue--3').innerHTML = data[word].appearance.toUpperCase();
+        picContainer.querySelector('.image__clue--4').innerHTML = data[word].function.toUpperCase();
       })
 }
 
@@ -262,20 +262,25 @@ function vibrate(ms) {
 
 picContainer.addEventListener('click', (event) => {
   if (isGameOver) return;
-  target = event.target;
-  const id = target.id.match(/\d+/)[0];
-  if (target.id === 'pic-1') return;
-  if (target.id === 'picHint-2') return;
   
-  if (target.id.includes('pic-')) {
+  target = event.target;
+  
+  if (target.classList[0] === 'image') return;
+  if (target.classList[0] === 'image--1') return;
+  if (target.classList[1] === 'image__clue--2') return;
+  
+  const num = target.classList.length === 1
+    ? target.classList[0].match(/\d+/)[0] 
+    : target.classList[1].match(/\d+/)[0];
+  
+  if (target.classList[0].startsWith('image--')) {
     target.style.display = "none";
-    picContainer.querySelector(`#picHint-${id}`).style.display = "block";
+    picContainer.querySelector(`.image__clue--${num}`).style.display = "block";
   }
   
-  if (target.id.includes('picHint-')) {
+  if (target.classList[0] === 'image__clue') {
     target.style.display = "none";
-    picContainer.querySelector(`#pic-${id}`).style.display = "block";
-    
+    picContainer.querySelector(`.image--${num}`).style.display = "block";
   }
   
   vibrate(28)
@@ -358,10 +363,10 @@ shuffleBtn.addEventListener('click', () => {
   sound.play();
   shuffle(letters);
   shuffleCooldown = true;
-  letterContainer.classList.add('shake-container')
+  letterContainer.classList.add('animation--shake')
   setTimeout(() => {
     shuffleCooldown = false
-    letterContainer.classList.remove('shake-container')
+    letterContainer.classList.remove('animation--shake')
   }, 600);
   
   vibrate(28)

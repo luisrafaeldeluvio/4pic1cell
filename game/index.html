@@ -10,9 +10,9 @@
 </head>
 
 <body>
-  <main>
+ 
     <div class="menu">
-      <button id="pause-btn"><img src="assets/pause.svg" alt=""></button>
+      <button id="pause-btn" class="button"><img src="assets/pause.svg" alt=""></button>
       <span class="timer"></span>
       <span class="score">score</span>
     </div>
@@ -20,14 +20,14 @@
     <div class="game">
       <span class="timer-container"></span>
       
-      <div class="pic-container">
-        <img src="" id="pic-1" loading="lazy">
-        <span id="picHint-1" class="pic-hint"></span>
-        <span id="picHint-2" class="pic-hint"></span>
-        <img src="" id="pic-3" loading="lazy">
-        <span id="picHint-3" class="pic-hint"></span>
-        <img src="" id="pic-4" loading="lazy">
-        <span id="picHint-4"class="pic-hint"></span>
+      <div class="image">
+        <img src="" class="image--1" loading="lazy">
+        <span id="" class="image__clue image__clue--1"></span>
+        <span id="" class="image__clue image__clue--2"></span>
+        <img src="" class="image--3" loading="lazy">
+        <span id="" class="image__clue image__clue--3"></span>
+        <img src="" class="image--4" loading="lazy">
+        <span id=""class=" image__clue image__clue--4"></span>
       </div>
       
       <div class="guess-container"></div>
@@ -55,21 +55,21 @@
           <span id="letter-18"></span>
           <span id="letter-19"></span>
         </div>
-        <button id="clue-btn"><img src="assets/clue.svg" alt=""></button>
-        <button id="hint-btn">HINT</button>
-        <button id="share-btn"><img src="assets/share.svg" alt=""></button>
-        <button id="shuffle-btn"><img src="assets/shuffle.svg" alt=""></button>
+        <button id="clue-btn" class="button button--flex-grow-1"><img src="assets/clue.svg" alt=""></button>
+        <button id="hint-btn" class="button button--flex-grow-7">HINT</button>
+        <button id="share-btn" class="button button--flex-grow-1"><img src="assets/share.svg" alt=""></button>
+        <button id="shuffle-btn" class="button button--flex-grow-1"><img src="assets/shuffle.svg" alt=""></button>
       </div>
     </div>
-  </main>
   
-  <div class="modal__pause">
+  
+  <div class="modal modal__pause">
     <button id="resume" class="modal__pause--btn">RESUME</button>
     <button id="settings" class="modal__pause--btn">SETTINGS</button>
     <button id="exit" class="modal__pause--btn">EXIT</button>
   </div>
   
-  <span class="modal__hint"></span>
+  <span class="modal modal__hint"></span>
   
   <div class="gameover-container">
     <span>GAME OVER</span>
