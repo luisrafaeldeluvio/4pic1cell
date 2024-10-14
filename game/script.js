@@ -497,6 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
     .then(data => {
       terms = data;
+      if (!localStorage.getItem('score')) localStorage.setItem('score', 0)
       newRound()
     })
 });
