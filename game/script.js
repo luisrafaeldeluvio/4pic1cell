@@ -209,8 +209,8 @@ let picDesc = [];
 
 function setPicDesc() {
   picContainer.querySelector('.image__clue--2').innerHTML = getWordAmount();
-        picContainer.querySelector('.image__clue--3').innerHTML = picDesc[word].appearance.toUpperCase();
-        picContainer.querySelector('.image__clue--4').innerHTML = picDesc[word].function.toUpperCase();
+  picContainer.querySelector('.image__clue--3').innerHTML = picDesc[word].appearance.toUpperCase();
+  picContainer.querySelector('.image__clue--4').innerHTML = picDesc[word].function.toUpperCase();
 }
 
 let Timer;
@@ -376,17 +376,24 @@ hintBtn.addEventListener('click', () => {
   const sound = new Audio('assets/click.wav')
   
   const _word = word.replaceAll(' ', '')
-  for (var i = 0; i < guess.length; i++) {
-    if (guess[i] === '') {
-      const guessElem = document.getElementById(`guess-${i}`);
-      guess[i] = _word[i];
-      guessElem.innerHTML = guess[i];
-      for (var j = 0; j < letters.length; j++) {
-        if (letters[j] === _word[i]) {
-          letters[j] = '';
-          break;
-        }
-      }
+  
+  emptyGuess = () => {
+    let index = [];
+    for (var i = 0; i < guess.length; i++) {
+      if (guess[i] === '') index.push(i)
+    }
+    return index;
+  }
+  
+  randomEmptyGuess = emptyGuess()[Math.floor(Math.random() * emptyGuess().length)];
+  
+  const guessElem = document.getElementById(`guess-${randomEmptyGuess}`);
+  guess[randomEmptyGuess] = _word[randomEmptyGuess];
+  guessElem.innerHTML = guess[randomEmptyGuess];
+  
+  for (var i = 0; i < letters.length; i++) {
+    if (letters[i] === _word[randomEmptyGuess]) {
+      letters[i] = '';
       break;
     }
   }

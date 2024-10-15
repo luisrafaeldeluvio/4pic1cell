@@ -146,11 +146,11 @@
   "NUCLEAR MEMBRANE": {
     "appearance": "A zipped-up bag because it encloses the nucleus securely, with openings resembling nuclear pores like zippers.",
     "function": "A security checkpoint gate because it controls what enters and leaves the nucleus, allowing only specific molecules in or out."
-  },
+  }, 
   "NUCLEUS": {
     "appearance": "A peach pit—a round, dense core within a soft, structured outer part, with a distinct boundary.",
     "function": "A control tower at an airport—it oversees and directs vital activities, managing the cell's operations by controlling gene expression and DNA replication."
-  },
+  }, 
   "CELL": {
     "appearance": "A small balloon filled with liquid, as both are enclosed structures with a flexible outer layer and internal contents.",
     "function": "A factory, because it processes materials and performs specialized tasks to maintain its own operations, similar to how a factory produces and manages goods."
@@ -158,23 +158,23 @@
   "NUCLEAR PORES": {
     "appearance": "A sieve. They resemble small, round openings with fine perforations, allowing only certain molecules to pass through.",
     "function": "A gate. They regulate the entry and exit of molecules in and out of the nucleus, much like a controlled checkpoint."
-  },
+  }, 
   "NUCLEOLUS": {
     "appearance": "A pea inside a fruit because it is a dense, round structure within the nucleus.",
     "function": "A factory since it produces ribosomes, essential machinery for protein synthesis, much like a factory produces parts for assembly."
-  },
+  }, 
   "CELL MEMBRANE": {
     "appearance": "A soap bubble has a thin, flexible, and dynamic structure with a fluid-like quality, much like the lipid bilayer of the membrane.",
     "function": "A security gate. It selectively allows substances to enter or exit the cell, maintaining control over the cell's internal environment."
-  },
+  }, 
   "GOLGI BODIES": {
     "appearance": "A stack of pancakes. Flattened, membrane-bound sacs that are neatly layered on top of each other.",
     "function": "A post office because they modify, package, and distribute proteins and lipids to their appropriate destinations in the cell, ensuring everything reaches where it needs to go."
-  },
+  }, 
   "ENDOPLASMIC RETICULUM": {
     "appearance": "A maze. It has a complex, interconnected network of membranes that resemble winding pathways.",
     "function": "A factory assembly line, as it is responsible for producing and transporting proteins and lipids, just like a line processes and assembles products."
-  },
+  }, 
   "RIBOSOME": {
     "appearance": "A small, round factory. Its compact, spherical shape resembles machinery built for efficient production.",
     "function": "A 3D printer. It reads instructions and assembles proteins, much like a printer reads a design and builds an object layer by layer."
