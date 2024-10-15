@@ -198,8 +198,10 @@ body {
 .modal__pause button {
 	background: #444cf7;
 	border: none;
-	display: flex;
 	font-size: 1.5em;
+	margin: 2.5%;
+	width: 100%;
+	
 }
 
 .modal__pause button:not(:last-child) {
