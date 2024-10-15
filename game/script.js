@@ -3,7 +3,7 @@ let guess = []; // the player's guess
 let letters = []; // the og, should not be changed
 let score = 0;
 let hintcount = 0;
-let time = 60;
+let time = 90;
 
 let isGameOver = false;
 
@@ -47,11 +47,9 @@ function modScore(state, mod) {
   switch (state) {
     case 'add':
       score += mod;
-      console.log(`added ${mod}`);
       break;
     case 'sub':
       score -= mod;
-      console.log(`removed ${mod}`);
       break;
   }
   
@@ -251,7 +249,7 @@ function resumeTimer() {
 function increaseTimer(seconds) {
   clearTimeout(Timer)
   const t = parseInt(timerContainer.innerHTML) + seconds
-  startTimer(t <= 60 ? t : 60)
+  startTimer(t <= 90 ? t : 90)
 }
 
 startTimer(time)
