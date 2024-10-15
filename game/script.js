@@ -41,6 +41,7 @@ function getGuessAmount() {
   return amount;
 }
 
+
 function modScore(state, mod) {
   
   switch (state) {
@@ -59,6 +60,7 @@ function modScore(state, mod) {
 }
 
 function pickGuess() {
+  
   const randNum = Math.floor(Math.random() * terms.length);
   
   return terms[randNum];
@@ -509,6 +511,15 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!localStorage.getItem('score')) localStorage.setItem('score', 0)
       newRound()
     })
+    
+    
+  fetch('terms-secret.json')
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      if (localStorage.getItem('easterEggUnlocked')) terms.push(...data);
+    })
   
   fetch('pic-description.json')
       .then(response => {
@@ -517,11 +528,4 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(data => {
         picDesc = data;
       })
-  // fetch('hint.json')
-  // .then(response => {
-  //   return response.json();
-  // })
-  // .then(data => {
-  //   hint = data;
-  // })
 });

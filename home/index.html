@@ -9,6 +9,15 @@
 </head>
 
 <body>
+  <div class="header">
+    <button class="btn btn__settings"><img src="settings.svg" alt="settings"></button>
+    <button class="btn btn__help">?</button>
+  </div>
+  <h1 class="title">4pic </br> 1cell</h1>
+  <p class="highscore">Highscore: 0</p>
+  <button class="btn btn__play" onclick="window.location.href = '../game/index.html'">Play</button>
+  
+  
   <div class="credits">
     <div class="credits__content">
       <span>Luis Rafael&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Revin Clark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matthew&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STEM-12 Dionysus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;General Biology</span>
@@ -16,10 +25,19 @@
       <span>Luis Rafael&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Revin Clark&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Matthew&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;STEM-12 Dionysus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;General Biology</span>
     </div>
   </div>
-  <h1>4pic </br> 1cell</h1>
-  <p class="highscore">Highscore: 0</p>
-  <button class="btn btn__play" onclick="window.location.href = '../game/index.html'">Play</button>
-  <button class="btn btn__settings"><img src="settings.svg" alt="settings"></button>
+  
+  <div class="modal modal__help">
+    <span class="modal__help--title">Help</span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+    <span class="modal__help--paragraph"></span>
+  </div>
   
   <script src="script.js"></script>
 </body>
