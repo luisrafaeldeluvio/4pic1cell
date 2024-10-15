@@ -86,7 +86,7 @@ body {
 	border-radius: 10px;
 	bottom: 40%;
 	display: flex;
-	height: calc(1.5em);
+	height: auto;
 	left: 47.5%;
 	max-width: 97.5%;
 	position: absolute;

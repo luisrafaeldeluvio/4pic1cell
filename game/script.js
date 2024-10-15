@@ -8,6 +8,7 @@ let time = 60;
 let isGameOver = false;
 
 let terms = [];
+let hint = [];
 
 const letterContainer = document.querySelector('.letter-container');
 const guessContainer = document.querySelector('.guess-container');
@@ -82,9 +83,12 @@ function setGuessContainer() {
     
   }
   
-  if (getWordAmount() >= 10) guessContainer.style.fontSize = "1.20em";
-  if (getWordAmount() >= 15) guessContainer.style.fontSize = "0.95em";
-  if (getWordAmount() >= 20) guessContainer.style.fontSize = "0.60em";
+  function downscale(length, expectedMaxLength, baseFontSize, minFontSize) {
+    const scalingFactor = 1 - Math.min(1 / expectedMaxLength * length, 1);
+    return Math.ceil(Math.max(scalingFactor * (baseFontSize - minFontSize) + minFontSize, minFontSize));
+  }
+  
+  guessContainer.style.fontSize = `${downscale(getWordAmount(), 13, 20, 16)}px`
 }
 
 function setLetters() {
@@ -201,16 +205,12 @@ function newRound() {
   scoreContainer.innerHTML = score;
 }
 
+let picDesc = [];
+
 function setPicDesc() {
-  fetch('pic-description.json')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        picContainer.querySelector('.image__clue--2').innerHTML = getWordAmount();
-        picContainer.querySelector('.image__clue--3').innerHTML = data[word].appearance.toUpperCase();
-        picContainer.querySelector('.image__clue--4').innerHTML = data[word].function.toUpperCase();
-      })
+  picContainer.querySelector('.image__clue--2').innerHTML = getWordAmount();
+        picContainer.querySelector('.image__clue--3').innerHTML = picDesc[word].appearance.toUpperCase();
+        picContainer.querySelector('.image__clue--4').innerHTML = picDesc[word].function.toUpperCase();
 }
 
 let Timer;
@@ -232,8 +232,6 @@ function startTimer(seconds) {
     }
   }, 1000)
 }
-
-console.log(typeof parseInt(localStorage.getItem("score")));
 
 function pauseTimer() {
   clearTimeout(Timer)
@@ -419,6 +417,10 @@ clueBtn.addEventListener('click', () => {
     hintcount += Math.round(getWordAmount() * 0.25);
   })
   
+  // hintContainer.style.display = "block";
+  // hintContainer.innerHTML = hint[word].toUpperCase();
+  // hintcount += Math.round(getWordAmount() * 0.25);
+  
   vibrate(28)
 })
 
@@ -500,4 +502,19 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!localStorage.getItem('score')) localStorage.setItem('score', 0)
       newRound()
     })
+  
+  fetch('pic-description.json')
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        picDesc = data;
+      })
+  // fetch('hint.json')
+  // .then(response => {
+  //   return response.json();
+  // })
+  // .then(data => {
+  //   hint = data;
+  // })
 });
