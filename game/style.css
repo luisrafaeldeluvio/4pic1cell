@@ -84,7 +84,7 @@ body {
 .guess-container {
 	background: #444cf7;
 	border-radius: 10px;
-	bottom: 40%;
+	bottom: 40vh;
 	display: flex;
 	height: auto;
 	left: 47.5%;
