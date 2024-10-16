@@ -47,7 +47,7 @@ body {
 }
 
 .bottom {
-	bottom: 20vh;
+	bottom: 20dvh;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
@@ -84,7 +84,7 @@ body {
 .guess-container {
 	background: #444cf7;
 	border-radius: 10px;
-	bottom: 40vh; /* HELP??? */
+	bottom: 40dvh; /* HELP??? */
 	display: flex;
 	height: auto; 
 	left: 47.5%;
